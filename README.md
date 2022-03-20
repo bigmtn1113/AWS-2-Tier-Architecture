@@ -11,9 +11,6 @@
 ### ACM
 - ALB, CloudFront에 적용시킬 SSL/TLS 인증서 생성 및 관리
 
-### Amazon RDS(Aurora)
-- 향상된 성능의 MySQL 사용
-
 ### CloudFront
 - 전 세계에 퍼져있는 엣지 로케이션에서 글로벌 유저에게 빠르게 콘텐츠 제공
 - OAI 사용으로 CloudFront를 통해 S3 접근
@@ -45,6 +42,9 @@
 
 ### IAM
 - User groups, Users, Roles, Policies 등 관리
+
+### RDS(Aurora)
+- 향상된 성능의 MySQL 사용
 
 ### Route 53
 - 도메인 생성 및 관리

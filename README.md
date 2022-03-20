@@ -8,18 +8,22 @@
 <hr/>
 
 ## Services
-### ACM
-- ALB, CloudFront에 적용시킬 SSL/TLS 인증서 생성 및 관리
+### EC2
+- Bastion Host 역할을 수행할 서버, Application(WordPress)을 실행할 WAS 서버로 구성
+- ALB 트래픽 전달 대상 및 Auto Scaling 대상은 WAS Instances
 
-### CloudFront
-- 전 세계에 퍼져있는 엣지 로케이션에서 글로벌 유저에게 빠르게 콘텐츠 제공
-- OAI 사용으로 CloudFront를 통해 S3 접근
+### EC2 Image Builder
+- Bastion AMI, WAS AMI 생성 및 관리
 
-### CloudTrail
-- 사용자, 역할 또는 AWS 서비스가 수행하는 작업을 이벤트로 기록
+<br/>
 
-### CloudWatch
-- 모니터링 및 운영 데이터를 로그, 지표 및 이벤트 형태로 수집
+### ElastiCache(Redis)
+- Application 지연 시간을 줄이기 위한 인 메모리 데이터 스토어
+
+### RDS(Aurora)
+- 향상된 성능의 MySQL 사용
+
+<br/>
 
 ### CodeCommit
 - 팀의 코드 협업을 위한 소스 코드 저장소 사용
@@ -30,32 +34,23 @@
 ### CodePipeline
 - CodeCommit에서 코드 변경 사항 발생 시, 자동으로 CodeDeploy가 배포를 진행하도록 파이프라인 구성
 
-### EC2
-- Bastion Host 역할을 수행할 서버, Application(WordPress)을 실행할 WAS 서버로 구성
-- ALB 트래픽 전달 대상 및 Auto Scaling 대상은 WAS Instances
+<br/>
 
-### EC2 Image Builder
-- Bastion AMI, WAS AMI 생성 및 관리
+### CloudTrail
+- 사용자, 역할 또는 AWS 서비스가 수행하는 작업을 이벤트로 기록
 
-### ElastiCache(Redis)
-- Application 지연 시간을 줄이기 위한 인 메모리 데이터 스토어
+### CloudWatch
+- 모니터링 및 운영 데이터를 로그, 지표 및 이벤트 형태로 수집
 
-### IAM
-- User groups, Users, Roles, Policies 등 관리
+<br/>
 
-### RDS(Aurora)
-- 향상된 성능의 MySQL 사용
+### CloudFront
+- 전 세계에 퍼져있는 엣지 로케이션에서 글로벌 유저에게 빠르게 콘텐츠 제공
+- OAI 사용으로 CloudFront를 통해 S3 접근
 
 ### Route 53
 - 도메인 생성 및 관리
 - ALB, CloudFront로 라우팅 수행
-
-### S3
-- 콘텐츠 이미지 저장
-
-### Shield
-- Application을 보호하는 디도스(DDoS) 보호 서비스
-- Advanced 기능을 사용하지 않으므로 별도의 작업 불필요
 
 ### VPC
 - VPCs - 가상 네트워크
@@ -67,5 +62,22 @@
 - NAT Gateways - Private 리소스들이 인터넷에 접근하기 위해 사용
 - Security Groups - 가상 방화벽 기능을 수행하며 연결된 리소스 트래픽 제어
 
+<br/>
+
+### ACM
+- ALB, CloudFront에 적용시킬 SSL/TLS 인증서 생성 및 관리
+
+### IAM
+- User groups, Users, Roles, Policies 등 관리
+
+### Shield
+- Application을 보호하는 디도스(DDoS) 보호 서비스
+- Advanced 기능을 사용하지 않으므로 별도의 작업 불필요
+
 ### WAF
 - SQL Injection, XSS 공격 외에도 여러 공격으로부터 Web Application이나 API를 보호하는 방화벽
+
+<br/>
+
+### S3
+- 콘텐츠 이미지 저장

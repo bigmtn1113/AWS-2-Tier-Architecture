@@ -54,7 +54,14 @@
 - 콘텐츠 이미지 저장
 
 ### VPC
-- VPCs, Subnets, Route Tables, Internet Gateways, Elastic IPs, Endpoints, NAT Gateways, Security Groups 등 관리
+- VPCs - 가상 네트워크
+- Subnets - VPC 내의 독립적 네트워크
+- Route Tables - Subnet 간의 통신, 외부로의 통신 등에 대한 라우팅 정보
+- Internet Gateways - 인터넷 통신을 위한 Gateway
+- Elastic IPs - NAT Gateway에 적용할 고정 IP
+- Endpoints - WAS Instances가 인터넷을 통하지 않고 S3에 접근하는 목적으로 사용
+- NAT Gateways - Private 리소스들이 인터넷에 접근하기 위해 사용
+- Security Groups - 가상 방화벽 기능을 수행하며 연결된 리소스 트래픽 제어
 
 ### WAF
 - SQL Injection, XSS 공격 외에도 여러 공격으로부터 Web Application이나 API를 보호하는 방화벽

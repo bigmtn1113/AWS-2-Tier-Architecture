@@ -2,7 +2,7 @@
 
 ## VPC
 ### VPCs
-- Name - VPC
+- VPC Name - VPC
   - IPv4 CIDR - 10.0.0.0/18
 
 ### Subnets
@@ -66,6 +66,35 @@
   - IPv4 CIDR - 10.0.41.0/24
   - ※ Objects
     - ElastiCache for Redis
+
+### Route Tables
+- Route Table Name - Public-Route-Table
+  - Destination and Target
+    - 10.0.0.0/18 - local
+    - 0.0.0.0/0 - Internet-GW
+  - Subnets
+    - Public-Subnet
+    - Public-Subnet-2
+    - Public-Subnet-3
+    - Public-Subnet-4
+
+- Route Table Name - Private-Route-Table
+  - Destination and Target
+    - 10.0.0.0/18 - local
+    - 0.0.0.0/0 - NAT-GW
+  - Subnets
+    - Private-Subnet
+    - Private-Subnet-2
+
+- Route Table Name - Private-Route-Table-2
+  - Destination and Target
+    - 10.0.0.0/18 - local
+    - 0.0.0.0/0 - NAT-GW-2
+  - Subnets
+    - Private-Subnet-3
+    - Private-Subnet-4
+    - Private-Subnet-5
+    - Private-Subnet-6
 
 <br/>
 

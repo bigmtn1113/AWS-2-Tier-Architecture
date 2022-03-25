@@ -114,6 +114,17 @@
   - Route tables
     - Private-Routing-Table
 
+### NAT Gateways
+- Name - NAT-GW
+  - Subnet - Public-Subnet
+  - Connectivity type - Public
+  - EIP - NAT-GW-EIP
+
+- Name - NAT-GW-2
+  - Subnet - Public-Subnet-2
+  - Connectivity type - Public
+  - EIP - NAT-GW-2-EIP
+
 <br/>
 
 ### ※ 참고

@@ -2,73 +2,73 @@
 
 ## VPC
 ### VPCs
-- VPC Name - VPC
+- Name - VPC
   - IPv4 CIDR - 10.0.0.0/18
 
 ### Subnets
-- Subnet Name - Public-Subnet
+- Name - Public-Subnet
   - Availability Zone - ap-northeast-2a
   - IPv4 CIDR - 10.0.0.0/24
   - ※ Objects
     - Bastion
     - NAT GW
 
-- Subnet Name - Public-Subnet-2
+- Name - Public-Subnet-2
   - Availability Zone - ap-northeast-2c
   - IPv4 CIDR - 10.0.1.0/24
   - ※ Objects
     - NAT GW
 
-- Subnet Name - Public-Subnet-3
+- Name - Public-Subnet-3
   - Availability Zone - ap-northeast-2a
   - IPv4 CIDR - 10.0.10.0/24
   - ※ Objects
     - ALB
 
-- Subnet Name - Public-Subnet-4
+- Name - Public-Subnet-4
   - Availability Zone - ap-northeast-2c
   - IPv4 CIDR - 10.0.11.0/24
   - ※ Objects
     - ALB
 
-- Subnet Name - Private-Subnet
+- Name - Private-Subnet
   - Availability Zone - ap-northeast-2a
   - IPv4 CIDR - 10.0.20.0/24
   - ※ Objects
     - WAS
 
-- Subnet Name - Private-Subnet-2
+- Name - Private-Subnet-2
   - Availability Zone - ap-northeast-2c
   - IPv4 CIDR - 10.0.21.0/24
   - ※ Objects
     - WAS
 
-- Subnet Name - Private-Subnet-3
+- Name - Private-Subnet-3
   - Availability Zone - ap-northeast-2a
   - IPv4 CIDR - 10.0.30.0/24
   - ※ Objects
     - Aurora
 
-- Subnet Name - Private-Subnet-4
+- Name - Private-Subnet-4
   - Availability Zone - ap-northeast-2c
   - IPv4 CIDR - 10.0.31.0/24
   - ※ Objects
     - Aurora
 
-- Subnet Name - Private-Subnet-5
+- Name - Private-Subnet-5
   - Availability Zone - ap-northeast-2a
   - IPv4 CIDR - 10.0.40.0/24
   - ※ Objects
     - ElastiCache for Redis
 
-- Subnet Name - Private-Subnet-6
+- Name - Private-Subnet-6
   - Availability Zone - ap-northeast-2c
   - IPv4 CIDR - 10.0.41.0/24
   - ※ Objects
     - ElastiCache for Redis
 
 ### Route Tables
-- Route Table Name - Public-Route-Table
+- Name - Public-Route-Table
   - Destination and Target
     - 10.0.0.0/18 - local
     - 0.0.0.0/0 - Internet-GW
@@ -78,7 +78,7 @@
     - Public-Subnet-3
     - Public-Subnet-4
 
-- Route Table Name - Private-Route-Table
+- Name - Private-Route-Table
   - Destination and Target
     - 10.0.0.0/18 - local
     - 0.0.0.0/0 - NAT-GW
@@ -86,7 +86,7 @@
     - Private-Subnet
     - Private-Subnet-2
 
-- Route Table Name - Private-Route-Table-2
+- Name - Private-Route-Table-2
   - Destination and Target
     - 10.0.0.0/18 - local
     - 0.0.0.0/0 - NAT-GW-2
@@ -95,6 +95,24 @@
     - Private-Subnet-4
     - Private-Subnet-5
     - Private-Subnet-6
+
+### Internet Gateways
+- Name - Internet-GW
+
+### Elastic IPs
+- Name - NAT-GW-EIP
+
+- Name - NAT-GW-2-EIP
+
+### Endpoints
+- Name - VPC-Endpoint
+  - Service category - AWS services
+  - Services
+    - Name - com.amazonaws.ap-northeast-2.s3
+    - Type - Gateway
+  - VPC - VPC
+  - Route tables
+    - Private-Routing-Table
 
 <br/>
 

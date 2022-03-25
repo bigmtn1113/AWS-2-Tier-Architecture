@@ -149,7 +149,41 @@
     - Port range - 443
     - Source - 0.0.0.0/0
 
+- Name - WAS-SG
+  - VPC - VPC
+  - Inboud rules
+    - Type - HTTP
+    - Protocol - TCP
+    - Port range - 80
+    - Source - WAS-ALB-SG
+    - Type - SSH
+    - Protocol - TCP
+    - Port range - 22
+    - Source - Bastion-SG
 
+- Name - Aurora-SG
+  - VPC - VPC
+  - Inboud rules
+    - Type - MYSQL/Aurora
+    - Protocol - TCP
+    - Port range - 3306
+    - Source - WAS-SG
+    - Type - MYSQL/Aurora
+    - Protocol - TCP
+    - Port range - 3306
+    - Source - Bastion-SG
+
+- Name - ElastiCache-For-Redis-SG
+  - VPC - VPC
+  - Inboud rules
+    - Type - Custom TCP
+    - Protocol - TCP
+    - Port range - 6379
+    - Source - WAS-SG
+    - Type - Custom TCP
+    - Protocol - TCP
+    - Port range - 6379
+    - Source - Bastion-SG
 
 <br/>
 

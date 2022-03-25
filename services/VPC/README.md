@@ -127,6 +127,32 @@
 
 <br/>
 
+## Security
+### Security Groups
+- Name - Bastion-SG
+  - VPC - VPC
+  - Inboud rules
+    - Type - SSH
+    - Protocol - TCP
+    - Port range - 22
+    - Source - Admin IP
+
+- Name - WAS-ALB-SG
+  - VPC - VPC
+  - Inboud rules
+    - Type - HTTP
+    - Protocol - TCP
+    - Port range - 80
+    - Source - 0.0.0.0/0
+    - Type - HTTPS
+    - Protocol - TCP
+    - Port range - 443
+    - Source - 0.0.0.0/0
+
+
+
+<br/>
+
 ### ※ 참고
 현재 사용 서브넷 IP 대역이 **10.0.0.0/24 ~ 10.0.41.0/24** 이므로 이 서브넷 IP 대역을 수용하려면 VPC Prefix가 18보다 작은 숫자여야 함
 

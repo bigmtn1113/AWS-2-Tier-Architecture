@@ -25,33 +25,47 @@
   - ※ Objects
     - ALB
 
-서브넷 이름 - Public-Subnet-4
-가용 영역 - ap-northeast-2c	용도: ALB
-IPv4 CIDR - 10.0.11.0/24
+- Subnet Name - Public-Subnet-4
+  - Availability Zone - ap-northeast-2c
+  - IPv4 CIDR - 10.0.11.0/24
+  - ※ Objects
+    - ALB
 
-서브넷 이름 - Private-Subnet
-가용 영역 - ap-northeast-2a	용도: WAS
-IPv4 CIDR - 10.0.20.0/24
+- Subnet Name - Private-Subnet
+  - Availability Zone - ap-northeast-2a
+  - IPv4 CIDR - 10.0.20.0/24
+  - ※ Objects
+    - WAS
 
-서브넷 이름 - Private-Subnet-2
-가용 영역 - ap-northeast-2c	용도: WAS
-IPv4 CIDR - 10.0.21.0/24
+- Subnet Name - Private-Subnet-2
+  - Availability Zone - ap-northeast-2c
+  - IPv4 CIDR - 10.0.21.0/24
+  - ※ Objects
+    - WAS
 
-서브넷 이름 - Private-Subnet-3
-가용 영역 - ap-northeast-2a	용도: Aurora
-IPv4 CIDR - 10.0.30.0/24
+- Subnet Name - Private-Subnet-3
+  - Availability Zone - ap-northeast-2a
+  - IPv4 CIDR - 10.0.30.0/24
+  - ※ Objects
+    - Aurora
 
-서브넷 이름 - Private-Subnet-4
-가용 영역 - ap-northeast-2c	용도: Aurora
-IPv4 CIDR - 10.0.31.0/24
+- Subnet Name - Private-Subnet-4
+  - Availability Zone - ap-northeast-2c
+  - IPv4 CIDR - 10.0.31.0/24
+  - ※ Objects
+    - Aurora
 
-서브넷 이름 - Private-Subnet-5
-가용 영역 - ap-northeast-2a	용도: ElastiCache for Redis
-IPv4 CIDR - 10.0.40.0/24
+- Subnet Name - Private-Subnet-5
+  - Availability Zone - ap-northeast-2a
+  - IPv4 CIDR - 10.0.40.0/24
+  - ※ Objects
+    - ElastiCache for Redis
 
-서브넷 이름 - Private-Subnet-6
-가용 영역 - ap-northeast-2c	용도: ElastiCache for Redis
-IPv4 CIDR - 10.0.41.0/24
+- Subnet Name - Private-Subnet-6
+  - Availability Zone - ap-northeast-2c
+  - IPv4 CIDR - 10.0.41.0/24
+  - ※ Objects
+    - ElastiCache for Redis
 
 <br/>
 

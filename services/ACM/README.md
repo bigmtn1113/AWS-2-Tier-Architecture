@@ -15,7 +15,7 @@
 - Region - us-east-1 (N. Virginia)
   - Certificate type - Request a public certificate
   - Fully qualified domain name
-    - img.taesankim.tk
+    - taesankim.tk
     - *.taesankim.tk
   - validation method - DNS
   - Tags

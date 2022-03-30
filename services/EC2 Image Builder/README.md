@@ -113,18 +113,43 @@
       sed -i "s/username_here/$db_username/g" wp-config.php
       sed -i "s/password_here/$db_user_password/g" wp-config.php
       sed -i "s/localhost/$db_host/g" wp-config.php
-      sed -i "/put your unique phrase here/d" wp-config.php
-      sed -i "/ABSPATH/,+6d" wp-config.php
+      sed -i "51,$d" wp-config.php
       cat <<"EOF" >>wp-config.php
 
-      define('AUTH_KEY',         '>:#9b!m]RQT9+6f!gbq^&re|$$d$|)AeY;gGLxw++Hg<+xtTXn7{7=&>LY;1.qYu');
-      define('SECURE_AUTH_KEY',  '6EKn|JzC|yhA.}3JFLf7WOU}dqM^gyv<{@d`EXQt4:o4uoV2UM|<C5,R3O@KC{-J');
-      define('LOGGED_IN_KEY',    '{;J61Ivlc;||)9wCKap(F+6,+u*VQHXSHI7}ns0+iHn4,j|*6sinG%SOp9<Y]lr#');
-      define('NONCE_KEY',        'O`NA{,]q(pr9{[G<zlx 3mSH]^ZKwjgI}*W8C9Wc<pUSO$!aC|-G|_+Gvwl.Kiwt');
-      define('AUTH_SALT',        '{N-tc}Xnd88JeWdb{_sqCJ}gTC,i1>XpQ1F_)OgY?(0w%&q|}-3=+w$Q<!4|IgAd');
-      define('SECURE_AUTH_SALT', 'SX>p3QT0^U**K wh[:VgX:ln_}qhN_4+:x>u/|e;1+|_uk-E-=>Nr0Db|3tWH]%$');
-      define('LOGGED_IN_SALT',   '4s)V0nS_H`x7GSONGwj9]xB#<a?cOu{(EN}m`lE+D9]EG?H-kkbYVZR:&4v>n3;+');
-      define('NONCE_SALT',       '|lx|{jgY`#h>8o)OjFt@;m2Ce9E/2/;|?h})!f&u6f?]+)tHW%wmZ-C.R0P.!c6t');
+      define('AUTH_KEY',         '-{*8{&9Z0<MH7t/@Y=P^taB(*a.z^kt$>v1$NJ(7v1PD$b/YH4puBGi;bs1bb9<9');
+      define('SECURE_AUTH_KEY',  't-1i3H|Hf-1/&ghPr58|^g]Yu:Y ??,Xc|G:%+~NvTO$>]X!i,OB0O1CN23$Y!:}');
+      define('LOGGED_IN_KEY',    'T&a-]qw_#J5=}?:-^8pgNV|T!5J;!V<Na<o%]]v3&TY<eV4|A&::VsBT)^9GY0-0');
+      define('NONCE_KEY',        '=010PoG)6Bu1|x[{=!iAoi3G-lx;XMVAZ6pzBmg8$/&?7yv+/o}Y+|AziUxdbr(u');
+      define('AUTH_SALT',        '#_qSh&b#;tkRe]yn.Atf}dZnji hp/w10xU:k50XLLWF7}E<{.]w2+Eov;6Mb5<w');
+      define('SECURE_AUTH_SALT', 'wk3A/q8w6L%UbH( w.K5<PC. U{^4~~Y-6wlQd-[**/[Q[l-5zxpQC}-u-R?Uocs');
+      define('LOGGED_IN_SALT',   'Nr^;|&w,x54/pG3}>KiE@U%(TPM~*0rPT*!Tko8eF?V?ke)h,}{1|A)|v8c~n3Z[');
+      define('NONCE_SALT',       ' N%WZ||C)L=:|ZZVlqwfNn[@qsKxk7cC,x@~)$O~/g]Y%+jASwH&^{{AWipjGf/r');
+      
+      /**#@-*/
+
+      /**
+       * WordPress database table prefix.
+       *
+       * You can have multiple installations in one database if you give each
+       * a unique prefix. Only numbers, letters, and underscores please!
+       */
+      $table_prefix = 'wp_';
+
+      /**
+       * For developers: WordPress debugging mode.
+       *
+       * Change this to true to enable the display of notices during development.
+       * It is strongly recommended that plugin and theme developers use WP_DEBUG
+       * in their development environments.
+       *
+       * For information on other constants that can be used for debugging,
+       * visit the documentation.
+       *
+       * @link https://wordpress.org/support/article/debugging-in-wordpress/
+       */
+      define( 'WP_DEBUG', false );
+
+      /* Add any custom values between this line and the "stop editing" line. */
 
       define( 'FS_METHOD', 'direct' );
 
@@ -135,7 +160,10 @@
       define('FORCE_SSL_ADMIN', true);
       define('FORCE_SSL_LOGIN', true);
       $_SERVER['HTTPS'] = 'on';
+      
+      /* That's all, stop editing! Happy publishing. */
 
+      /** Absolute path to the WordPress directory. */
       if ( ! defined( 'ABSPATH' ) ) {
               define( 'ABSPATH', __DIR__ . '/' );
       }
@@ -165,3 +193,6 @@
 
 ### ※ 참고
 Distribution settings에서 AMI tags 설정은 파이프라인 구성 후 설정할 것
+
+WordPress wp-config.php 설정 내용 중  
+긴 무작위 값을 추가해서 사이트의 보안성을 강화하는 코드는 [이 링크](https://api.wordpress.org/secret-key/1.1/salt/)에서 확인 가능

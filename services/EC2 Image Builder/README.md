@@ -155,7 +155,7 @@
 
       define( 'WP_REDIS_HOST', 'redis-cluster-for-wordpress.ye1eiy.ng.0001.apn2.cache.amazonaws.com' );
       define( 'WP_CACHE', true );
-      define( 'WP_CACHE_KEY_SALT', 'alb.taesankim.tk' );
+      define( 'WP_CACHE_KEY_SALT', 'taesankim.tk' );
 
       define('FORCE_SSL_ADMIN', true);
       define('FORCE_SSL_LOGIN', true);

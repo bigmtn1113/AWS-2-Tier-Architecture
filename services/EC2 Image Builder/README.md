@@ -113,7 +113,7 @@
       sed -i "s/username_here/$db_username/g" wp-config.php
       sed -i "s/password_here/$db_user_password/g" wp-config.php
       sed -i "s/localhost/$db_host/g" wp-config.php
-      sed -i "51,$d" wp-config.php
+      sed -i "51,1000d" wp-config.php
       cat <<"EOF" >>wp-config.php
 
       define('AUTH_KEY',         '-{*8{&9Z0<MH7t/@Y=P^taB(*a.z^kt$>v1$NJ(7v1PD$b/YH4puBGi;bs1bb9<9');

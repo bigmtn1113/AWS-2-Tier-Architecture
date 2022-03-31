@@ -173,7 +173,7 @@
       EOF
 
       # Create Heath Check Page
-      touch heath.html
+      touch heath_check.html
 
       # Change permission of /var/www/html/wordpress
       chown -R apache:apache /var/www/html/wordpress

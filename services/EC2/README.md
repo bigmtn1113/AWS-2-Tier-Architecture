@@ -113,6 +113,34 @@
 
 ## Auto Scaling
 ### Auto Scaling Groups
+- Choose launch template or configuration
+  - Name - WAS-ASG
+  - Launch template
+    - Launch template - WAS-Launch-Template
+    - Version - Default(1)
+- Choose instance launch options
+  - Network
+    - VPC - VPC
+    - Availability Zones and subnets
+      - ap-northeast-2a | Private-Subnet
+      - ap-northeast-2c | Private-Subnet-2
+- Configure advanced options
+  - Load balancing - Attach to an existing load balancer
+  - Attach to an existing load balancer - Choose from your load balancer target groups
+    - Existing load balancer target groups - WAS-TG | HTTP
+  - Health checks
+    - Health check grace period - 120 seconds
+  - Additional settings
+    - Monitoring - Enable group metrics collection within CloudWatch
+- Configure group size and scaling policies
+  - Group size
+    - Desired capacity - 2
+    - Minimum capacity - 2
+    - Maximum capacity - 4
+  - Scaling policies - Target tracking scaling policy
+    - Scaling policy name - WAS-Target-Tracking-Policy
+    - Metric type - Average CPU utilization
+    - Target value - 50
 
 <br/>
 

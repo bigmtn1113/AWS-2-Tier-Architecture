@@ -23,8 +23,101 @@
     - Choose an existing key pair
       - Select a key pair - Bastion-Key-Pair
 
+### Launch templates
+- Launch template name and description
+  - Launch template name - WAS-Launch-Template
+  - Auto Scaling guidance - Provide guidance to help me set up a template that I can use with EC2 Auto Scaling
+  - Template tags
+    - Key - Name
+    - Value - WAS-Launch-Template
+- Application and OS Images (Amazon machine Image)
+  - My AMIs
+    - Owned by me - Recipe-For-WAS-AMI
+- Instance type
+  - Instance type - t3.medium
+- Key pair (login)
+  - Key pair name - WAS-Key-Pair
+- Network settings
+  - Firewall (security groups) - Select existing security group
+    - Security groups - WAS-SG
+- Resource tags
+  - Key - Name
+  - Value - WAS
+- Advanced details
+  - IAM instance profile - EC2InstanceRole
+
+<br/>
+
+## Network & Security
+### Key Pairs
+- Bastion-Key-Pair
+  - Key pair
+    - Name - Bastion-Key-Pair
+    - Key pair type - RSA
+    - Private key file format - .pem
+
+- WAS-Key-Pair
+  - Key pair
+    - Name - WAS-Key-Pair
+    - Key pair type - RSA
+    - Private key file format - .pem
+
+<br/>
+
+## Load Balancing
+### Load Balancers
+- Load balancer types - Application Load Balancer
+- Basic configuration
+  - Load balancer name - WAS-ALB
+  - Scheme - Internet-facing
+- Network mapping
+  - VPC - VPC
+  - Mappings
+    - ap-northeast-2a - Public-Subnet-3
+    - ap-northeast-2c - Public-Subnet-4
+- Security groups
+  - Security groups - WAS-ALB-SG
+- Listeners and routing
+  - Listener - HTTP:80
+    - Protocol - HTTP
+    - Port - 80
+    - Default action - Redirect
+      - Itemized URL
+      - Protocol - HTTPS
+      - Port - 443
+    - Protocol - HTTPS
+    - Port - 443
+    - Default action - Forward to
+      - Target goup - WAS-TG
+    - Default SSL/TLS certificate
+      - From ACM - taesankim.tk
+- Tags
+  - Key - Name
+  - Value - WAS-ALB
+
+### Target Groups
+- Basic configuration
+  - Choose a target type - Instances
+  - Target group name - WAS-TG
+  - Protocol - HTTP
+  - Port - 80
+  - VPC - VPC
+- Health checks
+  - Health check protocol - HTTP
+  - Health check path - /heath_check.html
+- Tags
+  - Key - Name
+  - Value - WAS-TG
+
+<br/>
+
+## Auto Scaling
+### Auto Scaling Groups
+
 <br/>
 
 ### ※ 참고
 Bastion 인스턴스는 EC2 Image Builder를 통해 만들어진 AMI에서 수동 생성  
 WAS 인스턴스는 EC2 Image Builder를 통해 만들어진 AMI를 Auto Scaling에 적용시켜 자동 생성
+
+위에 명시된 Load Balancer의 Listeners 설정은 ALB를 만든 후 Listners 편집을 통해 설정 가능

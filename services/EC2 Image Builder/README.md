@@ -105,7 +105,7 @@
       wget https://wordpress.org/latest.tar.gz
       tar -xzf latest.tar.gz
 
-      # Create wordpress configuration file and update database value
+      # Create wordpress configuration file and modify wordpress configuration file
       cd /var/www/html/wordpress
       cp wp-config-sample.php wp-config.php
 
@@ -177,6 +177,10 @@
 
       # Change permission of /var/www/html/wordpress
       chown -R apache:apache /var/www/html/wordpress
+      
+      # Modify Apache configuration file
+      sed -i "s/DocumentRoot \"\/var\/www\/html\"/DocumentRoot \"\/var\/www\/html\/wordpress\"/g" /etc/httpd/conf/httpd.conf
+      sed -i "/\"\" combined$/ s/h/\{X-Forwarded-For\}i/" /etc/httpd/conf/httpd.conf
 
       # Make apache and mysql to autostart and restart apache
       systemctl enable httpd.service

@@ -198,5 +198,35 @@
 ### ※ 참고
 Distribution settings에서 AMI tags 설정은 파이프라인 구성 후 설정할 것
 
-WordPress wp-config.php 설정 내용 중  
-긴 무작위 값을 추가해서 사이트의 보안성을 강화하는 코드는 [이 링크](https://api.wordpress.org/secret-key/1.1/salt/)에서 확인 가능
+```php
+define('AUTH_KEY',         '-{*8{&9Z0<MH7t/@Y=P^taB(*a.z^kt$>v1$NJ(7v1PD$b/YH4puBGi;bs1bb9<9');
+...
+define('NONCE_SALT',       ' N%WZ||C)L=:|ZZVlqwfNn[@qsKxk7cC,x@~)$O~/g]Y%+jASwH&^{{AWipjGf/r');
+```
+긴 무작위 값을 추가해서 사이트의 보안성을 강화하는 코드는 [링크](https://api.wordpress.org/secret-key/1.1/salt/)에서 확인 가능
+
+```php
+define( 'FS_METHOD', 'direct' );
+```
+FTP 서버를 사용하지 않을 경우에 플러그인이나 테마를 사용할 수 있게 해주는 코드
+
+```php
+define( 'WP_REDIS_HOST', 'redis-cluster-for-wordpress.ye1eiy.ng.0001.apn2.cache.amazonaws.com' );
+define( 'WP_CACHE', true );
+define( 'WP_CACHE_KEY_SALT', 'taesankim.tk' );
+```
+Redis 연결할 때 사용하는 코드
+
+```php
+define('FORCE_SSL_ADMIN', true);
+define('FORCE_SSL_LOGIN', true);
+$_SERVER['HTTPS'] = 'on';
+```
+HTTPS 설정 시 사용하는 코드
+
+```bash
+sed -i "/\"\" combined$/ s/h/\{X-Forwarded-For\}i/" /etc/httpd/conf/httpd.conf
+```
+Apache에 x-forwarded-for logging을 쌓을 수 있게 로그 포맷을 변경하는 코드  
+Apache 로그에 로드밸런서 IP가 아닌 실제 클라이언트 IP 주소를 기록  
+[참고](https://zetawiki.com/wiki/%EC%95%84%ED%8C%8C%EC%B9%98_X-Forwarded-For_%EB%A1%9C%EA%B7%B8_%EC%84%A4%EC%A0%95)

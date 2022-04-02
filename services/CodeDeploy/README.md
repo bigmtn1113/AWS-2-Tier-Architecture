@@ -5,6 +5,7 @@
 - Application configuration
   - Application name - WordPress
   - Compute platform - EC2/On-premises
+- WordPress
   - Deployment groups
     - Deployment group name - Deployment-Group-For-WordPress
   - Service role - CodeDeployRoleAddAutoScaling

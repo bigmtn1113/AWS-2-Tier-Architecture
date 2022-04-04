@@ -2,110 +2,120 @@
 
 ## VPC
 ### VPCs
-- Name - ts-vpc
+- VPC settings
+  - Name tag - ts-vpc
   - IPv4 CIDR - 10.0.0.0/18
 
 ### Subnets
-- Name - ts-sub-pub-a
-  - Availability Zone - ap-northeast-2a
-  - IPv4 CIDR - 10.0.0.0/24
-  - ※ Objects
-    - Bastion
-    - NAT GW
+- VPC
+  - VPC - ts-vpc
+- Subnet settings
+  - Subnet 1 of 10
+    - Subnet name - ts-sub-pub-a
+    - Availability Zone - ap-northeast-2a
+    - IPv4 CIDR - 10.0.0.0/24
 
-- Name - ts-sub-pub-c
-  - Availability Zone - ap-northeast-2c
-  - IPv4 CIDR - 10.0.1.0/24
-  - ※ Objects
-    - NAT GW
+  - Subnet 2 of 10
+    - Subnet name - ts-sub-pub-c
+    - Availability Zone - ap-northeast-2c
+    - IPv4 CIDR - 10.0.1.0/24
 
-- Name - ts-sub-pub-alb-a
-  - Availability Zone - ap-northeast-2a
-  - IPv4 CIDR - 10.0.10.0/24
-  - ※ Objects
-    - ALB
+  - Subnet 3 of 10
+    - Subnet name - ts-sub-pub-alb-a
+    - Availability Zone - ap-northeast-2a
+    - IPv4 CIDR - 10.0.10.0/24
 
-- Name - ts-sub-pub-alb-c
-  - Availability Zone - ap-northeast-2c
-  - IPv4 CIDR - 10.0.11.0/24
-  - ※ Objects
-    - ALB
+  - Subnet 4 of 10
+    - Subnet name - ts-sub-pub-alb-c
+    - Availability Zone - ap-northeast-2c
+    - IPv4 CIDR - 10.0.11.0/24
 
-- Name - ts-sub-pri-svr-a
-  - Availability Zone - ap-northeast-2a
-  - IPv4 CIDR - 10.0.20.0/24
-  - ※ Objects
-    - WAS
+  - Subnet 5 of 10
+    - Subnet name - ts-sub-pri-svr-a
+    - Availability Zone - ap-northeast-2a
+    - IPv4 CIDR - 10.0.20.0/24
 
-- Name - ts-sub-pri-svr-c
-  - Availability Zone - ap-northeast-2c
-  - IPv4 CIDR - 10.0.21.0/24
-  - ※ Objects
-    - WAS
+  - Subnet 6 of 10
+    - Subnet name - ts-sub-pri-svr-c
+    - Availability Zone - ap-northeast-2c
+    - IPv4 CIDR - 10.0.21.0/24
 
-- Name - ts-sub-pri-rds-a
-  - Availability Zone - ap-northeast-2a
-  - IPv4 CIDR - 10.0.30.0/24
-  - ※ Objects
-    - Aurora
+  - Subnet 7 of 10
+    - Subnet name - ts-sub-pri-rds-a
+    - Availability Zone - ap-northeast-2a
+    - IPv4 CIDR - 10.0.30.0/24
 
-- Name - ts-sub-pri-rds-c
-  - Availability Zone - ap-northeast-2c
-  - IPv4 CIDR - 10.0.31.0/24
-  - ※ Objects
-    - Aurora
+  - Subnet 8 of 10
+    - Subnet name - ts-sub-pri-rds-c
+    - Availability Zone - ap-northeast-2c
+    - IPv4 CIDR - 10.0.31.0/24
 
-- Name - ts-sub-pri-redis-a
-  - Availability Zone - ap-northeast-2a
-  - IPv4 CIDR - 10.0.40.0/24
-  - ※ Objects
-    - ElastiCache for Redis
+  - Subnet 9 of 10
+    - Subnet name - ts-sub-pri-redis-a
+    - Availability Zone - ap-northeast-2a
+    - IPv4 CIDR - 10.0.40.0/24
 
-- Name - ts-sub-pri-redis-c
-  - Availability Zone - ap-northeast-2c
-  - IPv4 CIDR - 10.0.41.0/24
-  - ※ Objects
-    - ElastiCache for Redis
+  - Subnet 10 of 10
+    - Subnet name - ts-sub-pri-redis-c
+    - Availability Zone - ap-northeast-2c
+    - IPv4 CIDR - 10.0.41.0/24
 
 ### Route Tables
-- Name - ts-rt-pub
-  - Destination and Target
-    - 10.0.0.0/18 - local
-    - 0.0.0.0/0 - ts-prd-igw
-  - Subnets
-    - ts-sub-pub-a
-    - ts-sub-pub-c
-    - ts-sub-pub-alb-a
-    - ts-sub-pub-alb-c
+- Route table settings
+  - Name - ts-rt-pub
+  - VPC - ts-vpc
+  - Routes
+    - Destination and Target
+      - 10.0.0.0/18 - local
+      - 0.0.0.0/0 - ts-prd-igw
+  - Subnet associations
+    - Subnet and IPv4 CIDR
+      - ts-sub-pub-a - 10.0.0.0/24
+      - ts-sub-pub-c - 10.0.1.0/24
+      - ts-sub-pub-alb-a - 10.0.10.0/24
+      - ts-sub-pub-alb-c - 10.0.11.0/24
 
-- Name - ts-rt-pri-1
-  - Destination and Target
-    - 10.0.0.0/18 - local
-    - 0.0.0.0/0 - ts-prd-nat-a
-  - Subnets
-    - ts-sub-pri-svr-a
-    - ts-sub-pri-svr-c
+- Route table settings
+  - Name - ts-rt-pri-1
+  - - VPC - ts-vpc
+  - Routes
+    - Destination and Target
+      - 10.0.0.0/18 - local
+      - 0.0.0.0/0 - ts-prd-nat-a
+  - Subnet associations
+    - Subnet and IPv4 CIDR
+      - ts-sub-pri-svr-a - 10.0.20.0/24
+      - ts-sub-pri-svr-c - 10.0.21.0/24
 
-- Name - ts-rt-pri-2
+- Route table settings
+  - Name - ts-rt-pri-2
   - Destination and Target
     - 10.0.0.0/18 - local
     - 0.0.0.0/0 - ts-prd-nat-c
-  - Subnets
-    - ts-sub-pri-rds-a
-    - ts-sub-pri-rds-c
-    - ts-sub-pri-redis-a
-    - ts-sub-pri-redis-c
+  - Subnet associations
+    - Subnet and IPv4 CIDR
+      - ts-sub-pri-rds-a - 10.0.30.0/24
+      - ts-sub-pri-rds-c - 10.0.31.0/24
+      - ts-sub-pri-redis-a - 10.0.40.0/24
+      - ts-sub-pri-redis-c - 10.0.41.0/24
 
 ### Internet Gateways
-- Name - ts-prd-igw
+- Internet gateway settings
+  - Name tag - ts-prd-igw
+  - VPC - ts-vpc
 
 ### Elastic IPs
-- Name - ts-prd-nat-a-eip
+- Tags
+  - Key - Name
+  - Value - ts-prd-nat-a-eip
 
-- Name - ts-prd-nat-c-eip
+- Tags
+  - Key - Name
+  - Value - ts-prd-nat-c-eip
 
 ### Endpoints
-- Name - ts-prd-vpc-s3
+- Endpoint settings
+  - Name tag - ts-prd-vpc-s3
   - Service category - AWS services
   - Services
     - Name - com.amazonaws.ap-northeast-2.s3
@@ -115,12 +125,14 @@
     - ts-rt-pri-1
 
 ### NAT Gateways
-- Name - ts-prd-nat-a
+- NAT gateway settings
+  - Name - ts-prd-nat-a
   - Subnet - ts-sub-pub-a
   - Connectivity type - Public
   - EIP - ts-prd-nat-a-eip
 
-- Name - ts-prd-nat-c
+- NAT gateway settings
+  - Name - ts-prd-nat-c
   - Subnet - ts-sub-pub-c
   - Connectivity type - Public
   - EIP - ts-prd-nat-c-eip
@@ -129,61 +141,69 @@
 
 ## Security
 ### Security Groups
-- Name - ts-prd-pub-taesankim.tk-a-bastion-sg
+- Basic details
+  - Security group name - ts-prd-pub-taesankim.tk-a-bastion-sg
   - VPC - ts-vpc
-  - Inboud rules
-    - Type - SSH
-    - Protocol - TCP
-    - Port range - 22
-    - Source - Admin IP
+- Inboud rules
+  - Type - SSH
+  - Protocol - TCP
+  - Port range - 22
+  - Source - Admin IP
+- Tags
+  - Key - Name
+  - Value - ts-prd-pub-taesankim.tk-a-bastion-sg
 
-- Name - ts-prd-pub-taesankim.tk-lb-sg
+- Basic details
+  - Security group name - ts-prd-pub-taesankim.tk-lb-sg
   - VPC - ts-vpc
-  - Inboud rules
-    - Type - HTTP
-    - Protocol - TCP
-    - Port range - 80
-    - Source - 0.0.0.0/0
-    - Type - HTTPS
-    - Protocol - TCP
-    - Port range - 443
-    - Source - 0.0.0.0/0
+- Inboud rules
+  - Type - HTTP
+  - Protocol - TCP
+  - Port range - 80
+  - Source - 0.0.0.0/0
+  - Type - HTTPS
+  - Protocol - TCP
+  - Port range - 443
+  - Source - 0.0.0.0/0
 
-- Name - ts-prd-pri-taesankim.tk-sg
+- Basic details
+  - Security group name - ts-prd-pri-taesankim.tk-sg
   - VPC - ts-vpc
-  - Inboud rules
-    - Type - HTTP
-    - Protocol - TCP
-    - Port range - 80
-    - Source - ts-prd-pub-taesankim.tk-lb-sg
-    - Type - SSH
-    - Protocol - TCP
-    - Port range - 22
-    - Source - ts-prd-pub-taesankim.tk-a-bastion-sg
+- Inboud rules
+  - Type - HTTP
+  - Protocol - TCP
+  - Port range - 80
+  - Source - ts-prd-pub-taesankim.tk-lb-sg
+  - Type - SSH
+  - Protocol - TCP
+  - Port range - 22
+  - Source - ts-prd-pub-taesankim.tk-a-bastion-sg
 
-- Name - ts-prd-pri-taesankim.tk-rds-sg
+- Basic details
+  - Security group name - ts-prd-pri-taesankim.tk-rds-sg
   - VPC - VPC
-  - Inboud rules
-    - Type - MYSQL/Aurora
-    - Protocol - TCP
-    - Port range - 3306
-    - Source - ts-prd-pri-taesankim.tk-sg
-    - Type - MYSQL/Aurora
-    - Protocol - TCP
-    - Port range - 3306
-    - Source - ts-prd-pub-taesankim.tk-a-bastion-sg
+- Inboud rules
+  - Type - MYSQL/Aurora
+  - Protocol - TCP
+  - Port range - 3306
+  - Source - ts-prd-pri-taesankim.tk-sg
+  - Type - MYSQL/Aurora
+  - Protocol - TCP
+  - Port range - 3306
+  - Source - ts-prd-pub-taesankim.tk-a-bastion-sg
 
-- Name - ts-prd-pri-taesankim.tk-redis-sg
+- Basic details
+  - Security group name - ts-prd-pri-taesankim.tk-redis-sg
   - VPC - VPC
-  - Inboud rules
-    - Type - Custom TCP
-    - Protocol - TCP
-    - Port range - 6379
-    - Source - ts-prd-pri-taesankim.tk-sg
-    - Type - Custom TCP
-    - Protocol - TCP
-    - Port range - 6379
-    - Source - ts-prd-pub-taesankim.tk-a-bastion-sg
+- Inboud rules
+  - Type - Custom TCP
+  - Protocol - TCP
+  - Port range - 6379
+  - Source - ts-prd-pri-taesankim.tk-sg
+  - Type - Custom TCP
+  - Protocol - TCP
+  - Port range - 6379
+  - Source - ts-prd-pub-taesankim.tk-a-bastion-sg
 
 <br/>
 

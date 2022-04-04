@@ -3,7 +3,7 @@
 ## CloudTrail
 ### Trails
 - General details
-  - Trail name - CloudTrail
+  - Trail name - ts-cloudtrail
   - Storage location - Create new S3 bucket
   - Log file SSE-KMS encryption - Not enabled
 - CloudWatch Logs

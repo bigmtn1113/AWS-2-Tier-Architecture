@@ -3,11 +3,11 @@
 ## Deploy
 ### Applications
 - Application configuration
-  - Application name - WordPress
+  - Application name - ts-prd-pri-taesankim-asg
   - Compute platform - EC2/On-premises
-- WordPress
+- ts-prd-pri-taesankim-asg
   - Deployment groups
-    - Deployment group name - Deployment-Group-For-WordPress
+    - Deployment group name - ts-prd-pri-taesankim-asg
   - Service role - CodeDeployRoleAddAutoScaling
   - Deployment type - Blue/green
   - Environment configuration - Automatically copy Amazon EC2 Auto Scaling group

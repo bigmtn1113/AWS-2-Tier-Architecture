@@ -2,10 +2,10 @@
 
 ## CloudFront
 ### Distributions
-- Origin domain - bucket-for-was.s3.ap-northeast-2.amazonaws.com
+- Origin domain - ts-prd-taesankim.tk-s3.s3.ap-northeast-2.amazonaws.com
   - S3 bucket access
     - use OAI
-    - Origin access identity - access-identity-bucket-for-was.s3.ap-northeast-2.amazonaws.com
+    - Origin access identity - access-identity-ts-prd-taesankim.tk-s3.s3.ap-northeast-2.amazonaws.com
     - Bucket policy - update the bucket policy
   - Viewer protocol policy - Redirect HTTP to HTTPS
   - AWS WAF web ACL - Web-ACL-for-CloudFront

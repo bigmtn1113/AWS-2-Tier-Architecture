@@ -8,7 +8,7 @@
     - Origin access identity - access-identity-ts-prd-taesankim.tk-s3.s3.ap-northeast-2.amazonaws.com
     - Bucket policy - update the bucket policy
   - Viewer protocol policy - Redirect HTTP to HTTPS
-  - AWS WAF web ACL - Web-ACL-for-CloudFront
+  - AWS WAF web ACL - ts-prd-img.taesankim.tk-cf-waf
   - Alternate domain name (CNAME) - img.taesankim.tk
   - Custom SSL certificate - taesankim.tk
   - Default root object - index.html

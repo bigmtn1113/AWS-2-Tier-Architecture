@@ -2,16 +2,20 @@
 
 ## CloudFront
 ### Distributions
-- Origin domain - ts-prd-taesankim.tk-s3.s3.ap-northeast-2.amazonaws.com
+- Origin
+  - Origin domain - ts-prd-taesankim.tk-s3.s3.ap-northeast-2.amazonaws.com
+  - Name - ts-prd-taesankim.tk-s3
   - S3 bucket access
     - use OAI
     - Origin access identity - access-identity-ts-prd-taesankim.tk-s3.s3.ap-northeast-2.amazonaws.com
     - Bucket policy - update the bucket policy
-  - Viewer protocol policy - Redirect HTTP to HTTPS
+- Default cache behavior
+  - Viewer
+    - Viewer protocol policy - Redirect HTTP to HTTPS
+- Settings
   - AWS WAF web ACL - ts-prd-img.taesankim.tk-cf-waf
   - Alternate domain name (CNAME) - img.taesankim.tk
   - Custom SSL certificate - taesankim.tk
-  - Default root object - index.html
 
 <br/>
 

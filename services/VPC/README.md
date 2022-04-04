@@ -129,7 +129,7 @@
 
 ## Security
 ### Security Groups
-- Name - ts-prd-pub-a-bastion-sg
+- Name - ts-prd-pub-taesankim.tk-a-bastion-sg
   - VPC - ts-vpc
   - Inboud rules
     - Type - SSH
@@ -137,7 +137,7 @@
     - Port range - 22
     - Source - Admin IP
 
-- Name - ts-prd-pub-taesankim-lb-sg
+- Name - ts-prd-pub-taesankim.tk-lb-sg
   - VPC - ts-vpc
   - Inboud rules
     - Type - HTTP
@@ -149,17 +149,17 @@
     - Port range - 443
     - Source - 0.0.0.0/0
 
-- Name - ts-prd-pri-taesankim-sg
+- Name - ts-prd-pri-taesankim.tk-sg
   - VPC - ts-vpc
   - Inboud rules
     - Type - HTTP
     - Protocol - TCP
     - Port range - 80
-    - Source - ts-prd-pub-taesankim-lb-sg
+    - Source - ts-prd-pub-taesankim.tk-lb-sg
     - Type - SSH
     - Protocol - TCP
     - Port range - 22
-    - Source - ts-prd-pub-a-bastion-sg
+    - Source - ts-prd-pub-taesankim.tk-a-bastion-sg
 
 - Name - ts-prd-pri-taesankim-rds-sg
   - VPC - VPC
@@ -167,11 +167,11 @@
     - Type - MYSQL/Aurora
     - Protocol - TCP
     - Port range - 3306
-    - Source - ts-prd-pri-taesankim-sg
+    - Source - ts-prd-pri-taesankim.tk-sg
     - Type - MYSQL/Aurora
     - Protocol - TCP
     - Port range - 3306
-    - Source - ts-prd-pub-a-bastion-sg
+    - Source - ts-prd-pub-taesankim.tk-a-bastion-sg
 
 - Name - ts-prd-pri-taesankim-redis-sg
   - VPC - VPC
@@ -179,11 +179,11 @@
     - Type - Custom TCP
     - Protocol - TCP
     - Port range - 6379
-    - Source - ts-prd-pri-taesankim-sg
+    - Source - ts-prd-pri-taesankim.tk-sg
     - Type - Custom TCP
     - Protocol - TCP
     - Port range - 6379
-    - Source - ts-prd-pub-a-bastion-sg
+    - Source - ts-prd-pub-taesankim.tk-a-bastion-sg
 
 <br/>
 

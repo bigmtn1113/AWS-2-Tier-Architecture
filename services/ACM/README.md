@@ -10,7 +10,7 @@
   - validation method - DNS
   - Tags
     - Key - Name
-    - Value - Public-Certificate-For-ALB
+    - Value - taesankim.tk
 
 - Region - us-east-1 (N. Virginia)
   - Certificate type - Request a public certificate
@@ -20,7 +20,7 @@
   - validation method - DNS
   - Tags
     - Key - Name
-    - Value - Public-Certificate-For-CloudFront
+    - Value - taesankim.tk
 
 <br/>
 

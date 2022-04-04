@@ -3,7 +3,7 @@
 ## Source
 ### Repositories
 - Repository settings
-  - Repository name - Repository-For-WordPress
+  - Repository name - taesankim.tk
 
 <br/>
 

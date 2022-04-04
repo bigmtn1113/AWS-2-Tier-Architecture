@@ -43,3 +43,9 @@
 - Group name - taesankim.tk-5.7
   - Parameter group family - aurora-mysql5.7
   - Type - DB Parameter Group
+
+<br/>
+
+### ※ 참고
+Aurora를 사용할 시 option group 선택 불가  
+엔진 옵션을 MySQL을 선택하면 직접 생성한 option group 적용 가능

@@ -2,46 +2,46 @@
 
 ## EC2 Image Builder
 ### Image pipelines
-- Pipeline-For-Bastion
+- ts-prd-pub-taesankim.tk-a-Bastion
   - General
-    - Pipeline name - Pipeline-For-Bastion-AMI
+    - Pipeline name - ts-prd-pub-taesankim.tk-a-Bastion
     - Enable enhanced metadata collection
   - Build schedule
     - Schedule options
       - Schedule builder
       - Run pipeline every Week on Monday at 09:00 UTC
     - Dependency update settings - Run pipeline at the scheduled time if there are dependency updates
-  - Recipe - Recipe-For-Bastion-AMI
+  - Recipe - ts-prd-pub-taesankim.tk-a-Bastion
   - Infrastructure configuration
     - Configuration options - Create infrastructure configuration using service defaults
   - Distribution settings
     - Configuration options - Create distribution settings using service defaults
     - AMI tags
       - Key - Name
-      - Value - Bastion-AMI
+      - Value - ts-prd-pub-taesankim.tk-a-Bastion
 
 - Pipeline-For-Bastion
   - General
-    - Pipeline name - Pipeline-For-WAS-AMI
+    - Pipeline name - ts-prd-pri-taesankim.tk-asg
     - Enable enhanced metadata collection
   - Build schedule
     - Schedule options
       - Schedule builder
       - Run pipeline every Week on Monday at 09:00 UTC
     - Dependency update settings - Run pipeline at the scheduled time if there are dependency updates
-  - Recipe - Recipe-For-WAS-AMI
+  - Recipe - ts-prd-pri-taesankim.tk-asg
   - Infrastructure configuration
     - Configuration options - Create infrastructure configuration using service defaults
   - Distribution settings
     - Configuration options - Create distribution settings using service defaults
     - AMI tags
       - Key - Name
-      - Value - WAS-AMI
+      - Value - ts-prd-pri-taesankim.tk-asg
 
 ### Saved configurations - Image recipes
-- Recipe-For-Bastion-AMI
+- ts-prd-pub-taesankim.tk-a-Bastion
   - Recipe details
-    - Name - Recipe-For-Bastion-AMI
+    - Name - ts-prd-pub-taesankim.tk-a-Bastion
     - Version - 1.0.0
   - Base image
     - Select image - Select managed images
@@ -70,9 +70,9 @@
     - Test components - Amazon Linux
       - reboot-test-linux
 
-- Recipe-For-WAS-AMI
+- ts-prd-pri-taesankim.tk-asg
   - Recipe details
-    - Name - Recipe-For-WAS-AMI
+    - Name - ts-prd-pri-taesankim.tk-asg
     - Version - 1.0.0
   - Base image
     - Select image - Select managed images

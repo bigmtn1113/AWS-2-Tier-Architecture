@@ -10,29 +10,20 @@
     - Run pipeline every Week on Monday at 09:00 UTC
   - Dependency update settings - Run pipeline at the scheduled time if there are dependency updates
 - Recipe - ts-prd-pub-taesankim-tk-a-bastion
-- Infrastructure configuration
-  - Configuration options - Create infrastructure configuration using service defaults
-- Distribution settings
-  - Configuration options - Create distribution settings using service defaults
-  - AMI tags
-    - Key - Name
-    - Value - ts-prd-pub-taesankim-tk-a-bastion
+- Infrastructure configuration - ts-prd-pub-taesankim-tk-a-bastion
+- Distribution settings - ts-prd-pub-taesankim-tk-a-bastion
 
+--
 - General
-  - Pipeline name - ts-prd-pri-taesankim.tk-asg
+  - Pipeline name - ts-prd-pri-taesankim-tk-asg
 - Build schedule
   - Schedule options
     - Schedule builder
     - Run pipeline every Week on Monday at 09:00 UTC
   - Dependency update settings - Run pipeline at the scheduled time if there are dependency updates
-- Recipe - ts-prd-pri-taesankim.tk-asg
-- Infrastructure configuration
-  - Configuration options - Create infrastructure configuration using service defaults
-- Distribution settings
-  - Configuration options - Create distribution settings using service defaults
-  - AMI tags
-    - Key - Name
-    - Value - ts-prd-pri-taesankim.tk-asg
+- Recipe - ts-prd-pri-taesankim-tk-asg
+- Infrastructure configuration - ts-prd-pri-taesankim-tk-asg
+- Distribution settings - ts-prd-pri-taesankim-tk-asg
 
 ### Saved configurations - Image recipes
 - Recipe details
@@ -65,6 +56,7 @@
   - Test components - Amazon Linux
     - reboot-test-linux
 
+--
 - Recipe details
   - Name - ts-prd-pri-taesankim-tk-asg
   - Version - 1.0.0
@@ -187,11 +179,37 @@
   - Test components - Amazon Linux
     - reboot-test-linux
 
+### Saved configurations - Infrastructure configuration
+- General
+  - Name - ts-prd-pub-taesankim-tk-a-bastion
+  - IAM role - EC2InstanceProfileForImageBuilder
+
+--
+- General
+  - Name - ts-prd-pri-taesankim-tk-asg
+  - IAM role - EC2InstanceProfileForImageBuilder
+
+### Saved configurations - Distribution settings
+- Image type
+  - Output type - Amazon Machine Image (AMI)
+- General
+  - Name - ts-prd-pub-taesankim-tk-a-bastion
+- Output AMI tags
+  - Key - Name
+  - Value - ts-prd-pub-taesankim-tk-a-bastion
+
+--
+- Image type
+  - Output type - Amazon Machine Image (AMI)
+- General
+  - Name - ts-prd-pri-taesankim-tk-asg
+- Output AMI tags
+  - Key - Name
+  - Value - ts-prd-pri-taesankim-tk-asg
+
 <br/>
 
 ### ※ 참고
-Distribution settings에서 AMI tags 설정은 파이프라인 구성 후 설정할 것
-
 ```php
 define('AUTH_KEY',         '-{*8{&9Z0<MH7t/@Y=P^taB(*a.z^kt$>v1$NJ(7v1PD$b/YH4puBGi;bs1bb9<9');
 ...

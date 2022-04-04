@@ -3,19 +3,19 @@
 ## Pipeline
 ### Pipelines
 - Pipeline settings
-  - Pipeline name - taesankim.tk
+  - Pipeline name - ts-prd-taesankim.tk-pipeline
   - Service role - New service role
   - Role name - AWSCodePipelineServiceRole
   - Allow AWS CodePipeline to create a service role so it can be used with this new pipeline
 - Source
   - Source provider - AWS CodeCommit
-  - Repository name - taesankim.tk
+  - Repository name - ts-prd-taesankim.tk-repo
   - Branch name - master
 - Deploy
   - Deploy provider - AWS CodeDeploy
   - Region - Asia Pacific (Seoul)
-  - Application name - ts-prd-pri-taesankim-asg
-  - Deployment group - ts-prd-pri-taesankim-asg
+  - Application name - ts-prd-pri-taesankim.tk-app
+  - Deployment group - ts-prd-pri-taesankim.tk-asg-dg
 
 <br/>
 

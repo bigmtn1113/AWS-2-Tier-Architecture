@@ -2,10 +2,10 @@
 
 ## WAF
 ### Web ACLs
-- Name - Web-ACL-for-ALB
+- Name - ts-prd-pub-taesankim.tk-lb-waf
   - Resource type - Regional resources
   - Region - Asia Pacific (Seoul)
-  - Associated AWS resources - WAS-ALB
+  - Associated AWS resources - ts-prd-pub-taesankim.tk-lb
   - Rules
     - Core rule set
     - Linux operating system
@@ -13,10 +13,10 @@
     - SQL database
     - WordPress application
 
-- Name - Web-ACL-for-CloudFront
+- Name - ts-prd-img.taesankim.tk-cf-waf
   - Resource type - Regional resources
   - Region - CloudFront distributions
-  - Associated AWS resources - cloudfront.taesankim.tk가 대체 도메인으로 되어 있는 배포 선택
+  - Associated AWS resources - img.taesankim.tk
   - Rules
     - Core rule set
 

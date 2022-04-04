@@ -9,14 +9,14 @@
     - Schedule builder
     - Run pipeline every Week on Monday at 09:00 UTC
   - Dependency update settings - Run pipeline at the scheduled time if there are dependency updates
-- Recipe - ts-prd-pub-a-bastion
+- Recipe - ts-prd-pub-taesankim-tk-a-bastion
 - Infrastructure configuration
   - Configuration options - Create infrastructure configuration using service defaults
 - Distribution settings
   - Configuration options - Create distribution settings using service defaults
   - AMI tags
     - Key - Name
-    - Value - ts-prd-pub-a-bastion
+    - Value - ts-prd-pub-taesankim-tk-a-bastion
 
 - General
   - Pipeline name - ts-prd-pri-taesankim.tk-asg
@@ -36,7 +36,7 @@
 
 ### Saved configurations - Image recipes
 - Recipe details
-  - Name - ts-prd-pub-a-bastion
+  - Name - ts-prd-pub-taesankim-tk-a-bastion
   - Version - 1.0.0
 - Base image
   - Select image - Select managed images

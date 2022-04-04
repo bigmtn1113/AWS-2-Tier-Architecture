@@ -3,15 +3,15 @@
 ## Deploy
 ### Applications
 - Application configuration
-  - Application name - ts-prd-pri-taesankim-asg
+  - Application name - ts-prd-pri-taesankim.tk-app
   - Compute platform - EC2/On-premises
-- ts-prd-pri-taesankim-asg
+- ts-prd-pri-taesankim.tk-app
   - Deployment groups
-    - Deployment group name - ts-prd-pri-taesankim-asg
+    - Deployment group name - ts-prd-pri-taesankim.tk-dg
   - Service role - CodeDeployRoleAddAutoScaling
   - Deployment type - Blue/green
   - Environment configuration - Automatically copy Amazon EC2 Auto Scaling group
-    - Amazon EC2 Auto Scaling group - WAS-ASG
+    - Amazon EC2 Auto Scaling group - ts-prd-pri-taesankim.tk-asg
   - Deployment settings
     - Traffic rerouting - Reroute traffic immediately
     - Terminate the original instances in the deployment group
@@ -21,7 +21,7 @@
     - Deployment configuration - CodeDeployDefault.HalfAtATime
   - Load balancer
     - Application Load Balancer or Network Load Balancer
-      - Target gourp - WAS-TG
+      - Target gourp - ts-prd-pri-taesankim.tk-tg
 
 <br/>
 

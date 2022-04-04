@@ -75,6 +75,7 @@
       - ts-sub-pub-alb-a - 10.0.10.0/24
       - ts-sub-pub-alb-c - 10.0.11.0/24
 
+--
 - Route table settings
   - Name - ts-rt-pri-1
   - - VPC - ts-vpc
@@ -87,6 +88,7 @@
       - ts-sub-pri-svr-a - 10.0.20.0/24
       - ts-sub-pri-svr-c - 10.0.21.0/24
 
+--
 - Route table settings
   - Name - ts-rt-pri-2
   - Destination and Target
@@ -109,6 +111,7 @@
   - Key - Name
   - Value - ts-prd-nat-a-eip
 
+--
 - Tags
   - Key - Name
   - Value - ts-prd-nat-c-eip
@@ -131,6 +134,7 @@
   - Connectivity type - Public
   - EIP - ts-prd-nat-a-eip
 
+--
 - NAT gateway settings
   - Name - ts-prd-nat-c
   - Subnet - ts-sub-pub-c
@@ -153,6 +157,7 @@
   - Key - Name
   - Value - ts-prd-pub-taesankim.tk-a-bastion-sg
 
+--
 - Basic details
   - Security group name - ts-prd-pub-taesankim.tk-lb-sg
   - VPC - ts-vpc
@@ -160,12 +165,17 @@
   - Type - HTTP
   - Protocol - TCP
   - Port range - 80
-  - Source - 0.0.0.0/0
+  - Source - 0.0.0.0/0  
+  --
   - Type - HTTPS
   - Protocol - TCP
   - Port range - 443
   - Source - 0.0.0.0/0
+- Tags
+  - Key - Name
+  - Value - ts-prd-pub-taesankim.tk-lb-sg
 
+--
 - Basic details
   - Security group name - ts-prd-pri-taesankim.tk-sg
   - VPC - ts-vpc
@@ -173,11 +183,17 @@
   - Type - HTTP
   - Protocol - TCP
   - Port range - 80
-  - Source - ts-prd-pub-taesankim.tk-lb-sg
+  - Source - ts-prd-pub-taesankim.tk-lb-sg  
+  --
   - Type - SSH
   - Protocol - TCP
   - Port range - 22
   - Source - ts-prd-pub-taesankim.tk-a-bastion-sg
+- Tags
+  - Key - Name
+  - Value - ts-prd-pri-taesankim.tk-sg
+
+--
 
 - Basic details
   - Security group name - ts-prd-pri-taesankim.tk-rds-sg
@@ -186,11 +202,17 @@
   - Type - MYSQL/Aurora
   - Protocol - TCP
   - Port range - 3306
-  - Source - ts-prd-pri-taesankim.tk-sg
+  - Source - ts-prd-pri-taesankim.tk-sg  
+  --
   - Type - MYSQL/Aurora
   - Protocol - TCP
   - Port range - 3306
   - Source - ts-prd-pub-taesankim.tk-a-bastion-sg
+- Tags
+  - Key - Name
+  - Value - ts-prd-pri-taesankim.tk-rds-sg
+
+--
 
 - Basic details
   - Security group name - ts-prd-pri-taesankim.tk-redis-sg
@@ -199,11 +221,15 @@
   - Type - Custom TCP
   - Protocol - TCP
   - Port range - 6379
-  - Source - ts-prd-pri-taesankim.tk-sg
+  - Source - ts-prd-pri-taesankim.tk-sg  
+  --
   - Type - Custom TCP
   - Protocol - TCP
   - Port range - 6379
   - Source - ts-prd-pub-taesankim.tk-a-bastion-sg
+- Tags
+  - Key - Name
+  - Value - ts-prd-pri-taesankim.tk-redis-sg
 
 <br/>
 

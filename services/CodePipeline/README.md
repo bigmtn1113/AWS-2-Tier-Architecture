@@ -3,7 +3,7 @@
 ## Pipeline
 ### Pipelines
 - Pipeline settings
-  - Pipeline name - ts-prd-taesankim.tk-pipeline
+  - Pipeline name - ts-prd-taesankim.tk-asg-pipeline
   - Service role - New service role
   - Role name - AWSCodePipelineServiceRole
   - Allow AWS CodePipeline to create a service role so it can be used with this new pipeline

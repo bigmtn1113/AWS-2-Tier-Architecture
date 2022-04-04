@@ -2,47 +2,47 @@
 
 ## Instances
 ### Instances
-- Bastion
+- ts-prd-pub-taesankim.tk-a-bastion
   - Step 2: Choose an Instance Type
     - Instance Type - t3.small
   - Step 3: Configure Instance Details
-    - Network - VPC
-    - Subnet - Public-Subnet
+    - Network - ts-vpc
+    - Subnet - ts-sub-pub-a
     - Auto-assign Public IP - Enable
     - DNS Hostname - Enable resource-based IPv4 (A record) DNS requests
-    - Monitoring - Enable CloudWatch detailed monitoring
   - Step 4: Add Storage
     - default
   - Step 5: Add Tags
     - Key - Name
-    - Value - Bastion
+    - Value - ts-prd-pub-taesankim.tk-a-bastion
   - Step 6: Configure Security Group
     - Assign a security group
-      - Select an existing security group - Bastion-SG
+      - Select an existing security group - ts-prd-pub-taesankim.tk-a-bastion-sg
   - Step 7: Review Instance Launch
     - Choose an existing key pair
       - Select a key pair - Bastion-Key-Pair
 
 ### Launch templates
 - Launch template name and description
-  - Launch template name - WAS-Launch-Template
+  - Launch template name - ts-prd-pri-taesankim.tk-lt_v1
   - Auto Scaling guidance - Provide guidance to help me set up a template that I can use with EC2 Auto Scaling
   - Template tags
     - Key - Name
-    - Value - WAS-Launch-Template
+    - Value - ts-prd-pri-taesankim.tk-lt_v1
 - Application and OS Images (Amazon machine Image)
   - My AMIs
-    - Owned by me - Recipe-For-WAS-AMI
+    - Owned by me - ts-prd-pri-taesankim.tk-ami
 - Instance type
   - Instance type - t3.medium
 - Key pair (login)
   - Key pair name - WAS-Key-Pair
 - Network settings
   - Firewall (security groups) - Select existing security group
-    - Security groups - WAS-SG
+    - Security groups - ts-prd-pri-taesankim.tk-sg
 - Resource tags
   - Key - Name
-  - Value - WAS
+  - Value - ts-prd-pri-taesankim.tk-asg
+  - Resource types - Instances
 - Advanced details
   - IAM instance profile - EC2InstanceRole
 
@@ -68,15 +68,15 @@
 ### Load Balancers
 - Load balancer types - Application Load Balancer
 - Basic configuration
-  - Load balancer name - WAS-ALB
+  - Load balancer name - ts-prd-pub-taesankim.tk-lb
   - Scheme - Internet-facing
 - Network mapping
-  - VPC - VPC
+  - VPC - ts-vpc
   - Mappings
-    - ap-northeast-2a - Public-Subnet-3
-    - ap-northeast-2c - Public-Subnet-4
+    - ap-northeast-2a - ts-sub-pub-alb-a
+    - ap-northeast-2c - ts-sub-pub-alb-c
 - Security groups
-  - Security groups - WAS-ALB-SG
+  - Security groups - ts-prd-pub-taesankim.tk-lb-sg
 - Listeners and routing
   - Listener - HTTP:80
     - Protocol - HTTP
@@ -88,46 +88,46 @@
     - Protocol - HTTPS
     - Port - 443
     - Default action - Forward to
-      - Target goup - WAS-TG
+      - Target goup - ts-prd-pri-taesankim.tk-tg
     - Default SSL/TLS certificate
       - From ACM - taesankim.tk
 - Tags
   - Key - Name
-  - Value - WAS-ALB
+  - Value - ts-prd-pub-taesankim.tk-lb
 
 ### Target Groups
 - Basic configuration
   - Choose a target type - Instances
-  - Target group name - WAS-TG
+  - Target group name - ts-prd-pri-taesankim.tk-tg
   - Protocol - HTTP
   - Port - 80
-  - VPC - VPC
+  - VPC - ts-vpc
 - Health checks
   - Health check protocol - HTTP
   - Health check path - /heath_check.html
 - Tags
   - Key - Name
-  - Value - WAS-TG
+  - Value - ts-prd-pri-taesankim.tk-tg
 
 <br/>
 
 ## Auto Scaling
 ### Auto Scaling Groups
 - Choose launch template or configuration
-  - Name - WAS-ASG
+  - Name - ts-prd-pri-taesankim.tk-asg
   - Launch template
-    - Launch template - WAS-Launch-Template
+    - Launch template - ts-prd-pri-taesankim.tk-lt_v1
     - Version - Default(1)
 - Choose instance launch options
   - Network
-    - VPC - VPC
+    - VPC - ts-vpc
     - Availability Zones and subnets
-      - ap-northeast-2a | Private-Subnet
-      - ap-northeast-2c | Private-Subnet-2
+      - ap-northeast-2a | ts-sub-pri-svr-a
+      - ap-northeast-2c | ts-sub-pri-svr-c
 - Configure advanced options
   - Load balancing - Attach to an existing load balancer
   - Attach to an existing load balancer - Choose from your load balancer target groups
-    - Existing load balancer target groups - WAS-TG | HTTP
+    - Existing load balancer target groups - ts-prd-pri-taesankim.tk-tg | HTTP
   - Health checks
     - Health check grace period - 120 seconds
   - Additional settings
@@ -138,7 +138,7 @@
     - Minimum capacity - 2
     - Maximum capacity - 4
   - Scaling policies - Target tracking scaling policy
-    - Scaling policy name - WAS-Target-Tracking-Policy
+    - Scaling policy name - Target-Tracking-Policy
     - Metric type - Average CPU utilization
     - Target value - 50
 

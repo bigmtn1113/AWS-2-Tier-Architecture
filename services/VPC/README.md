@@ -2,143 +2,143 @@
 
 ## VPC
 ### VPCs
-- Name - VPC
+- Name - ts-vpc
   - IPv4 CIDR - 10.0.0.0/18
 
 ### Subnets
-- Name - Public-Subnet
+- Name - ts-sub-pub-a
   - Availability Zone - ap-northeast-2a
   - IPv4 CIDR - 10.0.0.0/24
   - ※ Objects
     - Bastion
     - NAT GW
 
-- Name - Public-Subnet-2
+- Name - ts-sub-pub-c
   - Availability Zone - ap-northeast-2c
   - IPv4 CIDR - 10.0.1.0/24
   - ※ Objects
     - NAT GW
 
-- Name - Public-Subnet-3
+- Name - ts-sub-pub-alb-a
   - Availability Zone - ap-northeast-2a
   - IPv4 CIDR - 10.0.10.0/24
   - ※ Objects
     - ALB
 
-- Name - Public-Subnet-4
+- Name - ts-sub-pub-alb-c
   - Availability Zone - ap-northeast-2c
   - IPv4 CIDR - 10.0.11.0/24
   - ※ Objects
     - ALB
 
-- Name - Private-Subnet
+- Name - ts-sub-pri-svr-a
   - Availability Zone - ap-northeast-2a
   - IPv4 CIDR - 10.0.20.0/24
   - ※ Objects
     - WAS
 
-- Name - Private-Subnet-2
+- Name - ts-sub-pri-svr-c
   - Availability Zone - ap-northeast-2c
   - IPv4 CIDR - 10.0.21.0/24
   - ※ Objects
     - WAS
 
-- Name - Private-Subnet-3
+- Name - ts-sub-pri-rds-a
   - Availability Zone - ap-northeast-2a
   - IPv4 CIDR - 10.0.30.0/24
   - ※ Objects
     - Aurora
 
-- Name - Private-Subnet-4
+- Name - ts-sub-pri-rds-c
   - Availability Zone - ap-northeast-2c
   - IPv4 CIDR - 10.0.31.0/24
   - ※ Objects
     - Aurora
 
-- Name - Private-Subnet-5
+- Name - ts-sub-pri-redis-a
   - Availability Zone - ap-northeast-2a
   - IPv4 CIDR - 10.0.40.0/24
   - ※ Objects
     - ElastiCache for Redis
 
-- Name - Private-Subnet-6
+- Name - ts-sub-pri-redis-c
   - Availability Zone - ap-northeast-2c
   - IPv4 CIDR - 10.0.41.0/24
   - ※ Objects
     - ElastiCache for Redis
 
 ### Route Tables
-- Name - Public-Route-Table
+- Name - ts-rt-pub
   - Destination and Target
     - 10.0.0.0/18 - local
-    - 0.0.0.0/0 - Internet-GW
+    - 0.0.0.0/0 - ts-prd-igw
   - Subnets
-    - Public-Subnet
-    - Public-Subnet-2
-    - Public-Subnet-3
-    - Public-Subnet-4
+    - ts-sub-pub-a
+    - ts-sub-pub-c
+    - ts-sub-pub-alb-a
+    - ts-sub-pub-alb-c
 
-- Name - Private-Route-Table
+- Name - ts-rt-pri-1
   - Destination and Target
     - 10.0.0.0/18 - local
-    - 0.0.0.0/0 - NAT-GW
+    - 0.0.0.0/0 - ts-prd-nat-a
   - Subnets
-    - Private-Subnet
-    - Private-Subnet-2
+    - ts-sub-pri-svr-a
+    - ts-sub-pri-svr-c
 
-- Name - Private-Route-Table-2
+- Name - ts-rt-pri-2
   - Destination and Target
     - 10.0.0.0/18 - local
-    - 0.0.0.0/0 - NAT-GW-2
+    - 0.0.0.0/0 - ts-prd-nat-c
   - Subnets
-    - Private-Subnet-3
-    - Private-Subnet-4
-    - Private-Subnet-5
-    - Private-Subnet-6
+    - ts-sub-pri-rds-a
+    - ts-sub-pri-rds-c
+    - ts-sub-pri-redis-a
+    - ts-sub-pri-redis-c
 
 ### Internet Gateways
-- Name - Internet-GW
+- Name - ts-prd-igw
 
 ### Elastic IPs
-- Name - NAT-GW-EIP
+- Name - ts-prd-nat-a
 
-- Name - NAT-GW-2-EIP
+- Name - ts-prd-nat-c
 
 ### Endpoints
-- Name - VPC-Endpoint
+- Name - ts-prd-vpc-s3
   - Service category - AWS services
   - Services
     - Name - com.amazonaws.ap-northeast-2.s3
     - Type - Gateway
   - VPC - VPC
   - Route tables
-    - Private-Routing-Table
+    - ts-rt-pri-1
 
 ### NAT Gateways
-- Name - NAT-GW
-  - Subnet - Public-Subnet
+- Name - ts-prd-nat-a
+  - Subnet - ts-sub-pub-a
   - Connectivity type - Public
-  - EIP - NAT-GW-EIP
+  - EIP - ts-prd-nat-a
 
-- Name - NAT-GW-2
-  - Subnet - Public-Subnet-2
+- Name - ts-prd-nat-c
+  - Subnet - ts-sub-pub-c
   - Connectivity type - Public
-  - EIP - NAT-GW-2-EIP
+  - EIP - ts-prd-nat-c
 
 <br/>
 
 ## Security
 ### Security Groups
-- Name - Bastion-SG
-  - VPC - VPC
+- Name - ts-prd-pub-a-bastion-sg
+  - VPC - ts-vpc
   - Inboud rules
     - Type - SSH
     - Protocol - TCP
     - Port range - 22
     - Source - Admin IP
 
-- Name - WAS-ALB-SG
-  - VPC - VPC
+- Name - ts-prd-pub-taesankim-lb-sg
+  - VPC - ts-vpc
   - Inboud rules
     - Type - HTTP
     - Protocol - TCP
@@ -149,41 +149,41 @@
     - Port range - 443
     - Source - 0.0.0.0/0
 
-- Name - WAS-SG
-  - VPC - VPC
+- Name - ts-prd-pri-taesankim-sg
+  - VPC - ts-vpc
   - Inboud rules
     - Type - HTTP
     - Protocol - TCP
     - Port range - 80
-    - Source - WAS-ALB-SG
+    - Source - ts-prd-pub-taesankim-lb-sg
     - Type - SSH
     - Protocol - TCP
     - Port range - 22
-    - Source - Bastion-SG
+    - Source - ts-prd-pub-a-bastion-sg
 
-- Name - Aurora-SG
+- Name - ts-prd-pri-taesankim-rds-sg
   - VPC - VPC
   - Inboud rules
     - Type - MYSQL/Aurora
     - Protocol - TCP
     - Port range - 3306
-    - Source - WAS-SG
+    - Source - ts-prd-pri-taesankim-sg
     - Type - MYSQL/Aurora
     - Protocol - TCP
     - Port range - 3306
-    - Source - Bastion-SG
+    - Source - ts-prd-pub-a-bastion-sg
 
-- Name - ElastiCache-For-Redis-SG
+- Name - ts-prd-pri-taesankim-redis-sg
   - VPC - VPC
   - Inboud rules
     - Type - Custom TCP
     - Protocol - TCP
     - Port range - 6379
-    - Source - WAS-SG
+    - Source - ts-prd-pri-taesankim-sg
     - Type - Custom TCP
     - Protocol - TCP
     - Port range - 6379
-    - Source - Bastion-SG
+    - Source - ts-prd-pub-a-bastion-sg
 
 <br/>
 

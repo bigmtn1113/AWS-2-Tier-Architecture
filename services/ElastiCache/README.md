@@ -5,10 +5,10 @@
 - Cluster engine - Redis
 - Location - Amazon Cloud
 - Redis settings
-  - Name - Redis-Cluster-For-WordPress
+  - Name - ts-prd-pri-taesankim-tk-redis
   - Engine version compatibility - 6.2
   - port - 6379
-  - Parameter group - redis-parameter-group
+  - Parameter group - taesankim.tk-6.x
   - Node type - cache.t4g.small
   - Number of replicas - 2
   - Multi-AZ
@@ -19,10 +19,10 @@
 
 ### Parameter groups
 - Family - redis6.x
-- Name - redis-parameter-group
+- Name - taesankim.tk-6.x
 
 ### Subnet groups
-- Name - redis-subnet-group
+- Name - ts-prd-pri-redis
 - VPC ID - VPC
 - Availability Zone or Outpost, Subnet ID
   - ap-northeast-2a, 10.0.40.0/24

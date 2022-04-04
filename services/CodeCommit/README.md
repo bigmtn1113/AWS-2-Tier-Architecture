@@ -3,7 +3,7 @@
 ## Source
 ### Repositories
 - Repository settings
-  - Repository name - taesankim.tk
+  - Repository name - ts-prd-taesankim.tk-repo
 
 <br/>
 

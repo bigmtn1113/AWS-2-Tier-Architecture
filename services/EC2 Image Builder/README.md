@@ -90,7 +90,7 @@
       db_username=admin
       db_user_password=Password12#$
       db_name=wordpress
-      db_host=aurora-cluster-for-wordpress.cluster-camwgkqdniyq.ap-northeast-2.rds.amazonaws.com
+      db_host=ts-prd-pri-taesankim-tk-aurora.cluster-camwgkqdniyq.ap-northeast-2.rds.amazonaws.com
 
       yum update -y
 
@@ -153,7 +153,7 @@
 
       define( 'FS_METHOD', 'direct' );
 
-      define( 'WP_REDIS_HOST', 'redis-cluster-for-wordpress.ye1eiy.ng.0001.apn2.cache.amazonaws.com' );
+      define( 'WP_REDIS_HOST', 'ts-prd-pri-taesankim-tk-redis.ye1eiy.ng.0001.apn2.cache.amazonaws.com' );
       define( 'WP_CACHE', true );
       define( 'WP_CACHE_KEY_SALT', 'taesankim.tk' );
 

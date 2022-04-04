@@ -100,9 +100,9 @@
 - Name - ts-prd-igw
 
 ### Elastic IPs
-- Name - ts-prd-nat-a
+- Name - ts-prd-nat-a-eip
 
-- Name - ts-prd-nat-c
+- Name - ts-prd-nat-c-eip
 
 ### Endpoints
 - Name - ts-prd-vpc-s3
@@ -110,7 +110,7 @@
   - Services
     - Name - com.amazonaws.ap-northeast-2.s3
     - Type - Gateway
-  - VPC - VPC
+  - VPC - ts-vpc
   - Route tables
     - ts-rt-pri-1
 
@@ -118,12 +118,12 @@
 - Name - ts-prd-nat-a
   - Subnet - ts-sub-pub-a
   - Connectivity type - Public
-  - EIP - ts-prd-nat-a
+  - EIP - ts-prd-nat-a-eip
 
 - Name - ts-prd-nat-c
   - Subnet - ts-sub-pub-c
   - Connectivity type - Public
-  - EIP - ts-prd-nat-c
+  - EIP - ts-prd-nat-c-eip
 
 <br/>
 

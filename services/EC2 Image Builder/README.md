@@ -2,25 +2,25 @@
 
 ## EC2 Image Builder
 ### Image pipelines
-- ts-prd-pub-taesankim.tk-a-Bastion
+- ts-prd-pub-a-bastion
   - General
-    - Pipeline name - ts-prd-pub-taesankim.tk-a-Bastion
+    - Pipeline name - ts-prd-pub-a-bastion
     - Enable enhanced metadata collection
   - Build schedule
     - Schedule options
       - Schedule builder
       - Run pipeline every Week on Monday at 09:00 UTC
     - Dependency update settings - Run pipeline at the scheduled time if there are dependency updates
-  - Recipe - ts-prd-pub-taesankim.tk-a-Bastion
+  - Recipe - ts-prd-pub-a-bastion
   - Infrastructure configuration
     - Configuration options - Create infrastructure configuration using service defaults
   - Distribution settings
     - Configuration options - Create distribution settings using service defaults
     - AMI tags
       - Key - Name
-      - Value - ts-prd-pub-taesankim.tk-a-Bastion
+      - Value - ts-prd-pub-a-bastion
 
-- Pipeline-For-Bastion
+- ts-prd-pri-taesankim.tk-asg
   - General
     - Pipeline name - ts-prd-pri-taesankim.tk-asg
     - Enable enhanced metadata collection
@@ -39,9 +39,9 @@
       - Value - ts-prd-pri-taesankim.tk-asg
 
 ### Saved configurations - Image recipes
-- ts-prd-pub-taesankim.tk-a-Bastion
+- ts-prd-pub-a-bastion
   - Recipe details
-    - Name - ts-prd-pub-taesankim.tk-a-Bastion
+    - Name - ts-prd-pub-a-bastion
     - Version - 1.0.0
   - Base image
     - Select image - Select managed images

@@ -2,16 +2,15 @@
 
 ## S3
 ### Buckets
-- bucket-for-was
-  - General configuration
-    - Bucket name - bucket-for-was
-    - AWS Region - Asia Pacific (Seoul) ap-northeast-2
-  - Object Ownership - ACLs disabled
-  - Block Public Access settings for this bucket - Block all public access
-  - Bucket Versioning - Enable
-  - Tags
-    - Key - Name
-    - Value - bucket-for-was
+- General configuration
+  - Bucket name - ts-prd-taesankim.tk-s3
+  - AWS Region - Asia Pacific (Seoul) ap-northeast-2
+- Object Ownership - ACLs disabled
+- Block Public Access settings for this bucket - Block all public access
+- Bucket Versioning - Enable
+- Tags
+  - Key - Name
+  - Value - ts-prd-taesankim.tk-s3
 
 <br/>
 

@@ -161,7 +161,7 @@
     - Port range - 22
     - Source - ts-prd-pub-taesankim.tk-a-bastion-sg
 
-- Name - ts-prd-pri-taesankim-rds-sg
+- Name - ts-prd-pri-taesankim.tk-rds-sg
   - VPC - VPC
   - Inboud rules
     - Type - MYSQL/Aurora
@@ -173,7 +173,7 @@
     - Port range - 3306
     - Source - ts-prd-pub-taesankim.tk-a-bastion-sg
 
-- Name - ts-prd-pri-taesankim-redis-sg
+- Name - ts-prd-pri-taesankim.tk-redis-sg
   - VPC - VPC
   - Inboud rules
     - Type - Custom TCP

@@ -5,7 +5,7 @@
 - Pipeline settings
   - Pipeline name - ts-prd-taesankim.tk-asg-pipeline
   - Service role - New service role
-  - Role name - AWSCodePipelineServiceRole-ap-northeast-2-ts-prd-taesankim.tk-asg-pipeline
+  - Role name - AWSCodePipelineServiceRole-ts-prd-taesankim.tk-asg-pipeline
   - Allow AWS CodePipeline to create a service role so it can be used with this new pipeline
 - Source
   - Source provider - AWS CodeCommit

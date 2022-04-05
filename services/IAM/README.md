@@ -11,6 +11,16 @@
 - Role details
   - Role name - AmazonEC2RoleForS3
 
+--
+- Trusted entity
+  - Trusted entity type - AWS service
+  - Use case - CodeDeploy
+- Permissions
+  - Permissions policies
+    - AWSCodeDeployRole
+- Role details
+  - Role name - AWSCodeDeployRole
+
 <br/>
 
 ### ※ 참고

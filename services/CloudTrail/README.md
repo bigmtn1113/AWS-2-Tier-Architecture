@@ -2,21 +2,24 @@
 
 ## CloudTrail
 ### Trails
-- General details
-  - Trail name - ts-cloudtrail
-  - Storage location - Create new S3 bucket
-  - Log file SSE-KMS encryption - Not enabled
-- CloudWatch Logs
-  - CloudWatch Logs - Enabled
-  - Log group - New
-  - IAM Role - New
-  - Role name - CloudTrailRoleForCloudWatchLogs
-- Events
-  - Event type - Management events
-- Management events
-  - API activity
-    - Read
-    - Write
+- Trail attributes
+  - General details
+    - Trail name - ts-cloudtrail
+    - Storage location - Create new S3 bucket
+    - Log file SSE-KMS encryption - Not enabled
+  - CloudWatch Logs
+    - CloudWatch Logs - Enabled
+    - Log group - New
+    - IAM Role - New
+    - Role name - CloudTrailRoleForCloudWatchLogs_ts-cloudtrail
+- Log events
+  - Events
+    - Event type
+      - Management events
+  - Management events
+    - API activity
+      - Read
+      - Write
 
 <br/>
 

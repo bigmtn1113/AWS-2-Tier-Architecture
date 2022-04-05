@@ -8,9 +8,6 @@
 - Object Ownership - ACLs disabled
 - Block Public Access settings for this bucket - Block all public access
 - Bucket Versioning - Enable
-- Tags
-  - Key - Name
-  - Value - ts-prd-taesankim.tk-s3
 
 <br/>
 

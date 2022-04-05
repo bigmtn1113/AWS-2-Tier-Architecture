@@ -6,13 +6,13 @@
 - Engine options
   - Engine type - Amazon Aurora
   - Edition - Amazon Aurora MySQL-Compatible Edition
-  - Available versions - Aurora (MySQL 5.7) 2.07.2
+  - Available versions - Aurora MySQL 3.01.0 (compatible with MySQL 8.0.23)
 - Templates - Production
 - Settings
   - DB cluster identifier - ts-prd-pri-taesankim-tk-aurora
   - Master username - admin
   - Master password - Password12#$
-- DB instance class - db.t3.small
+- DB instance class - db.t3.medium
 - Multi-AZ deployment - Create an Aurora Replica or Reader node in a different AZ
 - Connectivity
   - VPC - ts-vpc
@@ -21,8 +21,15 @@
 - Additional configuration
   - Database options
     - Initial database name - wordpress
-    - DB cluster parameter group - taesankim.tk-5.7
-    - DB parameter group - taesankim.tk-5.7
+    - DB cluster parameter group - taesankim-tk-80
+    - DB parameter group - taesankim-tk-80
+  - Monitoring
+    - Enable Enhanced monitoring - Not enabled
+  - Log exports
+    - Audit log
+    - Error log
+    - General log
+    - Slow query log
 
 ### Subnet groups
 - Subnet group details
@@ -37,12 +44,16 @@
     - 10.0.31.0/24 (ts-sub-pri-rds-c)
 
 ### Parameter groups
-- Group name - taesankim.tk-5.7
-  - Parameter group family - aurora-mysql5.7
+- Parameter group details
+  - Parameter group family - aurora-mysql8.0
   - Type - DB Cluster Parameter Group
-- Group name - taesankim.tk-5.7
-  - Parameter group family - aurora-mysql5.7
+  - Group name - taesankim-tk-80
+
+--
+- Parameter group details
+  - Parameter group family - aurora-mysql8.0
   - Type - DB Parameter Group
+  - Group name - taesankim-tk-80
 
 <br/>
 

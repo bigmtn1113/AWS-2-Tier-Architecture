@@ -2,23 +2,28 @@
 
 ## WAF
 ### Web ACLs
-- Name - ts-prd-pub-taesankim.tk-lb-waf
+- Web ACL details
+  - Name - ts-prd-pub-taesankim-tk-lb-waf
   - Resource type - Regional resources
   - Region - Asia Pacific (Seoul)
-  - Associated AWS resources - ts-prd-pub-taesankim.tk-lb
+  - Associated AWS resources - ts-prd-pub-taesankim-tk-lb
   - Rules
-    - Core rule set
-    - Linux operating system
-    - PHP application
-    - SQL database
-    - WordPress application
+    - AWS managed rule groups
+      - Core rule set
+      - Linux operating system
+      - PHP application
+      - SQL database
+      - WordPress application
 
-- Name - ts-prd-img.taesankim.tk-cf-waf
-  - Resource type - Regional resources
-  - Region - CloudFront distributions
+--
+- Web ACL details
+  - Name - ts-prd-img-taesankim-tk-cf-waf
+  - Resource type - CloudFront distributions
+  - Region - Global (CloudFront)
   - Associated AWS resources - img.taesankim.tk
   - Rules
-    - Core rule set
+    - AWS managed rule groups
+      - Core rule set
 
 <br/>
 

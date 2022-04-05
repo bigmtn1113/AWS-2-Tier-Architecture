@@ -2,7 +2,9 @@
 
 ## Route 53
 ### Hosted zones
-- Domain name - taesankim.tk
+- Hosted zone configuration
+  - Domain name - taesankim.tk
+- taesankim.tk
   - Records
     - Record name - ~~.taesankim.tk
       - Type - CNAME

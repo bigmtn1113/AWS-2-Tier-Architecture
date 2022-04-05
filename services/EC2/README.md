@@ -2,25 +2,22 @@
 
 ## Instances
 ### Instances
-- ts-prd-pub-taesankim.tk-a-bastion
-  - Step 2: Choose an Instance Type
-    - Instance Type - t3.small
-  - Step 3: Configure Instance Details
-    - Network - ts-vpc
-    - Subnet - ts-sub-pub-a
-    - Auto-assign Public IP - Enable
-    - DNS Hostname - Enable resource-based IPv4 (A record) DNS requests
-  - Step 4: Add Storage
-    - default
-  - Step 5: Add Tags
-    - Key - Name
-    - Value - ts-prd-pub-taesankim.tk-a-bastion
-  - Step 6: Configure Security Group
-    - Assign a security group
-      - Select an existing security group - ts-prd-pub-taesankim.tk-a-bastion-sg
-  - Step 7: Review Instance Launch
-    - Choose an existing key pair
-      - Select a key pair - Bastion-Key-Pair
+- Instance Type
+  - Instance Type - t3.small
+- Instance Details
+  - Network - ts-vpc
+  - Subnet - ts-sub-pub-a
+  - Auto-assign Public IP - Enable
+  - DNS Hostname - Enable resource-based IPv4 (A record) DNS requests
+- Tags
+  - Key - Name
+  - Value - ts-prd-pub-taesankim.tk-a-bastion
+- Security Group
+  - Assign a security group
+    - Select an existing security group - ts-prd-pub-taesankim.tk-a-bastion-sg
+- Instance Launch
+  - Choose an existing key pair
+    - Select a key pair - Bastion-Key-Pair
 
 ### Launch templates
 - Launch template name and description
@@ -31,7 +28,7 @@
     - Value - ts-prd-pri-taesankim.tk-lt_v1
 - Application and OS Images (Amazon machine Image)
   - My AMIs
-    - Owned by me - ts-prd-pri-taesankim.tk-ami
+    - Owned by me - ts-prd-pri-taesankim-tk-asg
 - Instance type
   - Instance type - t3.medium
 - Key pair (login)
@@ -44,7 +41,7 @@
   - Value - ts-prd-pri-taesankim.tk-asg
   - Resource types - Instances
 - Advanced details
-  - IAM instance profile - EC2InstanceRole
+  - IAM instance profile - AmazonEC2RoleForS3
 
 <br/>
 
@@ -68,7 +65,7 @@
 ### Load Balancers
 - Load balancer types - Application Load Balancer
 - Basic configuration
-  - Load balancer name - ts-prd-pub-taesankim.tk-lb
+  - Load balancer name - ts-prd-pub-taesankim-tk-lb
   - Scheme - Internet-facing
 - Network mapping
   - VPC - ts-vpc
@@ -84,50 +81,46 @@
     - Default action - Redirect
       - Itemized URL
       - Protocol - HTTPS
-      - Port - 443
+      - Port - 443  
+  - Listener - HTTPS:443
     - Protocol - HTTPS
     - Port - 443
     - Default action - Forward to
       - Target goup - ts-prd-pri-taesankim.tk-tg
     - Default SSL/TLS certificate
       - From ACM - taesankim.tk
-- Tags
-  - Key - Name
-  - Value - ts-prd-pub-taesankim.tk-lb
 
 ### Target Groups
 - Basic configuration
-  - Choose a target type - Instances
-  - Target group name - ts-prd-pri-taesankim.tk-tg
+  - Target type - Instances
+  - Target group name - ts-prd-pri-taesankim-tk-tg
   - Protocol - HTTP
   - Port - 80
   - VPC - ts-vpc
 - Health checks
   - Health check protocol - HTTP
   - Health check path - /heath_check.html
-- Tags
-  - Key - Name
-  - Value - ts-prd-pri-taesankim.tk-tg
 
 <br/>
 
 ## Auto Scaling
 ### Auto Scaling Groups
-- Choose launch template or configuration
-  - Name - ts-prd-pri-taesankim.tk-asg
+- Launch template or configuration
+  - Name
+    - Auto Scaling group name - ts-prd-pri-taesankim.tk-asg
   - Launch template
     - Launch template - ts-prd-pri-taesankim.tk-lt_v1
     - Version - Default(1)
-- Choose instance launch options
+- Instance launch options
   - Network
     - VPC - ts-vpc
     - Availability Zones and subnets
       - ap-northeast-2a | ts-sub-pri-svr-a
       - ap-northeast-2c | ts-sub-pri-svr-c
-- Configure advanced options
+- Advanced options
   - Load balancing - Attach to an existing load balancer
   - Attach to an existing load balancer - Choose from your load balancer target groups
-    - Existing load balancer target groups - ts-prd-pri-taesankim.tk-tg | HTTP
+    - Existing load balancer target groups - ts-prd-pri-taesankim-tk-tg | HTTP
   - Health checks
     - Health check grace period - 120 seconds
   - Additional settings
@@ -145,7 +138,7 @@
 <br/>
 
 ### ※ 참고
-Bastion 인스턴스는 EC2 Image Builder를 통해 만들어진 AMI에서 수동 생성  
-WAS 인스턴스는 EC2 Image Builder를 통해 만들어진 AMI를 Auto Scaling에 적용시켜 자동 생성
+Bastion 인스턴스는 EC2 Image Builder를 통해 만들어진 AMI(ts-prd-pub-taesankim-tk-a-bastion)에서 수동 생성  
+WAS 인스턴스는 EC2 Image Builder를 통해 만들어진 AMI(ts-prd-pri-taesankim-tk-asg)를 Auto Scaling에 적용시켜 자동 생성
 
-위에 명시된 Load Balancer의 Listeners 설정은 ALB를 만든 후 Listners 편집을 통해 설정 가능
+위에 명시된 Load Balancer의 Listeners 설정은 ALB를 만든 후 Listners 편집을 통해 설정

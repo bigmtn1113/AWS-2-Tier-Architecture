@@ -8,23 +8,23 @@
   - Name - ts-prd-pri-taesankim-tk-redis
   - Engine version compatibility - 6.2
   - port - 6379
-  - Parameter group - taesankim.tk-6.x
+  - Parameter group - taesankim-tk-6x
   - Node type - cache.t4g.small
   - Number of replicas - 2
   - Multi-AZ
 - Advanced Redis settings
-  - Subnet group - redis-subnet-group
+  - Subnet group - ts-prd-pri-redis
 - Security
-  - Security groups - ElastiCache-For-Redis-SG
+  - Security groups - ts-prd-pri-taesankim.tk-redis-sg
 
 ### Parameter groups
 - Family - redis6.x
-- Name - taesankim.tk-6.x
+- Name - taesankim-tk-6x
 
 ### Subnet groups
 - Name - ts-prd-pri-redis
-- VPC ID - VPC
-- Availability Zone or Outpost, Subnet ID
+- VPC - ts-vpc
+- Availability Zone or Outpost, Subnet
   - ap-northeast-2a, 10.0.40.0/24
   - ap-northeast-2c, 10.0.41.0/24
 

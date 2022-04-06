@@ -40,5 +40,7 @@
 NS, SOA 레코드는 호스팅 영역 생성 시 자동 생성 (여기선 표기 X)  
 Value/Route traffic to는 Alias 비활성화/활성화 차이
 
+인증서 레코드는 ACM에서 인증서 발급 받을 때 생성한 레코드
+
 taesankim.tk, www.taesankim.tk 로 접근 시 ALB로 라우팅  
 img.taesankim.tk로 접근 시 CloudFront로 라우팅

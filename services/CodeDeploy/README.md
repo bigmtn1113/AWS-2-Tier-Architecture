@@ -8,7 +8,7 @@
 - ts-prd-pri-taesankim.tk-app
   - Deployment groups
     - Deployment group name - ts-prd-pri-taesankim.tk-asg-dg
-  - Service role - CodeDeployRoleAddAutoScaling
+  - Service role - AWSCodeDeployRole
   - Deployment type - Blue/green
   - Environment configuration - Automatically copy Amazon EC2 Auto Scaling group
     - Amazon EC2 Auto Scaling group - ts-prd-pri-taesankim.tk-asg

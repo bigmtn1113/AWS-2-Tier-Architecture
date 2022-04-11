@@ -49,3 +49,6 @@
 On-Premise DB는 mysql  
 Migration을 적용할 DB는 Aurora  
 EC2 인스턴스는 기존 Bastion EC2를 사용
+
+On-Premise에서 S3를 거치지 않고 바로 EC2로 파일을 보내려면 ssh나 scp를 사용해야 하는데  
+이것은 키를 On-Premise에서 소유하고 있어야 하므로 권장하지 않음

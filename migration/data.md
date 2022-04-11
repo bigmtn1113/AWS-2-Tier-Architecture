@@ -7,6 +7,8 @@
 - EC2에서 S3 Bucket에 있는 파일을 다운로드할 수 있도록 EC2에 IAM 권한 설정
 - EC2에서 DB로 접근할 수 있도록 보안 그룹 설정
 
+<br/>
+
 ### 과정
 #### 1. On-Premise 환경에 AWS CLI 설치
   ```bash

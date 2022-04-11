@@ -81,3 +81,15 @@
 
 ### [S3](https://github.com/kva231/AWS-2-Tier-Architecture/tree/master/services/S3)
 - 콘텐츠 이미지 저장
+
+<hr/>
+
+## [Migration](https://github.com/kva231/AWS-2-Tier-Architecture/tree/master/migration)
+### [Contents Migration](https://github.com/kva231/AWS-2-Tier-Architecture/blob/master/migration/contents.md)
+- On-Premise에서 사용하는 이미지, 동영상 등의 파일을 S3로 이전
+
+### [Data Migration](https://github.com/kva231/AWS-2-Tier-Architecture/blob/master/migration/data.md)
+- On-Premise에서 사용하는 MySQL data를 Aurora로 이전
+
+### [Domain Migration](https://github.com/kva231/AWS-2-Tier-Architecture/blob/master/migration/domain.md)
+- 기존 hosting 중인 domain을 Route 53에서 hosting하도록 이전

@@ -20,4 +20,5 @@
 <br/>
 
 ### ※ 참고
+CloudFront OAI를 이용해 퍼블릭 엑세스를 차단한 S3 Bucket에 접근  
 CloudFront에 인증서를 적용하기 위해선 N. Virginia에 인증서가 존재해야 함

@@ -23,5 +23,7 @@
 <br/>
 
 ### ※ 참고
-ALB 접근 및 CloudFront를 통해 S3로의 접근할 때 HTTPS로 접근하도록 하기 위한 인증서 설정
+ALB 접근 및 CloudFront를 통해 S3로의 접근할 때 HTTPS로 접근하도록 하기 위한 인증서 설정  
 인증서 요청 후, 각 Domain에 대한 레코드를 Route 53에 생성해야 Status가 Issued 됨
+
+CloudFront에서 인증서를 사용하려면 버지니아 북부에서 인증서를 발급받아야 함

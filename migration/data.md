@@ -13,21 +13,27 @@
   pip install awscli
   aws --version
   ```
-#### 2. On-Premise 환경에 mysqldump 파일 생성
+#### 2. aws configure 실행
+  ```bash
+  aws configure
+  # AWS Access Key ID 입력
+  # AWS Secret Access Key0 입력
+  # Default region name 입력
+  # Default output format 입력
+  ```
+#### 3. On-Premise 환경에서 mysqldump 파일 생성
   ```bash
   mysqldump -u <On-Premise DB username> -p --all-databases > <mysqldump 파일 명>
   ```
-#### 3. S3 Bucket에 mysqldump 파일 업로드
+#### 4. S3 Bucket에 mysqldump 파일 업로드
   ```bash
   aws s3 cp <mysqldump 파일 명> s3://<버킷 이름>
   ```
-
-#### 4. EC2 인스턴스에 접속 후, S3 Bucket에 있는 mysqldump 파일 다운로드
+#### 5. EC2 인스턴스에 접속 후, S3 Bucket에 있는 mysqldump 파일 다운로드
   ```bash
   aws s3 cp s3://<버킷 이름/mysqldump 파일 명> <파일을 다운로드할 경로>
   ```
-
-#### 5. EC2 인스턴스에서 DB로 접속 후, mysqldump 파일 실행
+#### 6. EC2 인스턴스에서 DB로 접속 후, mysqldump 파일 실행
   ```bash
   mysql -u <DB username> -p -h <DB host>
   ```

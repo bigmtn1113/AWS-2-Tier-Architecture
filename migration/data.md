@@ -4,6 +4,8 @@
 - mysqldump를 저장할 S3 Bucket 생성
 - S3로 접근할 수 있는 권한을 가진 사용자로 진행
 - DB로 mysqldump 파일을 전달하는 용도의 EC2 인스턴스 생성
+- EC2에서 S3 Bucket에 있는 파일을 다운로드할 수 있도록 EC2에 IAM 권한 설정
+- EC2에서 DB로 접근할 수 있도록 보안 그룹 설정
 
 ### 과정
 #### 1. On-Premise 환경에 AWS CLI 설치

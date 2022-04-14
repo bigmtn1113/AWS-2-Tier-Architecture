@@ -2,22 +2,23 @@
 
 ## Instances
 ### Instances
+- Name and Tags
+  - Name - ts-prd-pub-taesankim.tk-a-bastion
+- Application and OS Images (Amazon Machine Image)
+  - AMI from catalog
+    - ts-prd-pub-taesankim-tk-a-bastion
 - Instance Type
   - Instance Type - t3.small
-- Instance Details
-  - Network - ts-vpc
+- Key pair (login)
+  - Key pair name - Bastion-Key-Pair
+- Network settings
+  - VPC - ts-vpc
   - Subnet - ts-sub-pub-a
   - Auto-assign Public IP - Enable
+  - Firewall (security groups) - Select existing security group
+    - Common security groups - ts-prd-pub-taesankim.tk-a-bastion-sg
+- Advanced details
   - DNS Hostname - Enable resource-based IPv4 (A record) DNS requests
-- Tags
-  - Key - Name
-  - Value - ts-prd-pub-taesankim.tk-a-bastion
-- Security Group
-  - Assign a security group
-    - Select an existing security group - ts-prd-pub-taesankim.tk-a-bastion-sg
-- Instance Launch
-  - Choose an existing key pair
-    - Select a key pair - Bastion-Key-Pair
 
 ### Launch templates
 - Launch template name and description
